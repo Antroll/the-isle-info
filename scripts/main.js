@@ -12,6 +12,7 @@ var APP = {
 	cache: {},
 	initBefore: function initBefore() {
 		APP.polyfills();
+		// APP.isBrowserFocus()
 		APP.svgIcons();
 		document.documentElement.className = document.documentElement.className.replace("no-js", "js");
 	},
@@ -36,6 +37,15 @@ var APP = {
 
 	initOnLoad: function initOnLoad() {
 		APP.truncateText(document.querySelectorAll('.js-dot'));
+	},
+
+	getClipboardText: function getClipboardText() {
+		navigator.clipboard.readText().then(function (text) {
+			return text;
+			// console.log('Pasted content: ', text);
+		}).catch(function (err) {
+			// console.warn('Failed to read clipboard contents: ', err);
+		});
 	},
 
 	buttons: function buttons() {
@@ -124,28 +134,34 @@ var APP = {
 		});
 	},
 
-	calcCoordinates: function calcCoordinates() {
+	calcMapCoordinates: function calcMapCoordinates() {
 		var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.01;
 		var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.01;
-		var getLatLng = arguments[2];
+		var mapName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'thenyaw';
 
-		var latOfPercent = 0.149;
-		var lngOfPercent = 0.146;
-		if (getLatLng) {
-			var lat = parseInt((x - 50) * 7);
-			var lng = parseInt((y - 50) * 7);
-			return {
-				top: lng,
-				left: lat
-			};
-		} else {
-			var mapX = 50 + x * latOfPercent;
-			var mapY = 50 + y * lngOfPercent;
-			return {
-				top: mapY,
-				left: mapX
-			};
-		}
+		var percents = 100;
+		var mapSize = mapName === 'thenyaw' ? 700 : 1600;
+		var lat = parseInt((x - 50) * (mapSize / percents));
+		var lng = parseInt((y - 50) * (mapSize / percents));
+		return {
+			left: lat,
+			top: lng
+		};
+	},
+
+	calcMapPercentage: function calcMapPercentage() {
+		var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.01;
+		var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.01;
+		var mapName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'thenyaw';
+
+		var latOfPercent = mapName === 'thenyaw' ? 0.149 : 0.0625;
+		var lngOfPercent = mapName === 'thenyaw' ? 0.146 : 0.0625;
+		var mapX = 50 + x * latOfPercent;
+		var mapY = 50 + y * lngOfPercent;
+		return {
+			top: mapY,
+			left: mapX
+		};
 	},
 
 	setCurrentPosition: function setCurrentPosition() {
@@ -153,6 +169,8 @@ var APP = {
 		if (!form) {
 			return;
 		}
+
+		var mapName = document.querySelector('[data-map-name]').getAttribute('data-map-name');
 
 		var updateTooltip = function updateTooltip(elem, lat, lng) {
 			var title = elem.getAttribute('data-tippy-content');
@@ -166,10 +184,11 @@ var APP = {
 			var playerMarker = document.querySelector('.js-player-marker');
 			var lat = form.querySelector('input[name="lat"]').value * 1;
 			var lng = form.querySelector('input[name="lng"]').value * 1;
-			var pos = APP.calcCoordinates(lat, lng);
+			var pos = APP.calcMapPercentage(lat, lng, mapName);
 
 			if (pos.left > 100 || pos.top > 100 || pos.top < 0 || pos.left < 0) {
 				alert('Неверные координаты');
+				console.log(pos);
 			} else {
 				playerMarker.classList.remove('d-none');
 				playerMarker.style.left = pos.left + '%';
@@ -181,11 +200,12 @@ var APP = {
 
 	mouseOverMap: function mouseOverMap() {
 		var mapLayout = document.querySelector('.map__layout');
-		var positionField = document.getElementById('position');
 		if (mapLayout) {
+			var mapName = mapLayout.getAttribute('data-map-name');
+			var positionField = document.getElementById('position');
 			mapLayout.onmousemove = function (e) {
 				var posPercent = getPosition(e);
-				var posLatLng = APP.calcCoordinates(posPercent.x, posPercent.y, true);
+				var posLatLng = APP.calcMapCoordinates(posPercent.x, posPercent.y, mapName);
 
 				positionField.innerHTML = 'lat: ' + posLatLng.left + ', long: ' + posLatLng.top;
 				positionField.style.display = 'block';
@@ -357,6 +377,38 @@ var APP = {
 		Element.prototype.hasClass = function (className) {
 			return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
 		};
+	},
+
+	isBrowserFocus: function isBrowserFocus() {
+		(function () {
+			var hidden = "hidden";
+
+			// Standards:
+			if (hidden in document) document.addEventListener("visibilitychange", onchange);else if ((hidden = "mozHidden") in document) document.addEventListener("mozvisibilitychange", onchange);else if ((hidden = "webkitHidden") in document) document.addEventListener("webkitvisibilitychange", onchange);else if ((hidden = "msHidden") in document) document.addEventListener("msvisibilitychange", onchange);
+			// IE 9 and lower:
+			else if ("onfocusin" in document) document.onfocusin = document.onfocusout = onchange;
+				// All others:
+				else window.onpageshow = window.onpagehide = window.onfocus = window.onblur = onchange;
+
+			function onchange(evt) {
+				var v = "visible",
+				    h = "hidden",
+				    evtMap = {
+					focus: v,
+					focusin: v,
+					pageshow: v,
+					blur: h,
+					focusout: h,
+					pagehide: h
+				};
+
+				evt = evt || window.event;
+				if (evt.type in evtMap) document.body.className = evtMap[evt.type];else document.body.className = this[hidden] ? "hidden" : "visible";
+			}
+
+			// set the initial state (but only if browser supports the Page Visibility API)
+			if (document[hidden] !== undefined) onchange({ type: document[hidden] ? "blur" : "focus" });
+		})();
 	},
 
 	detectIE: function detectIE() {
