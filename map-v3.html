@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<title>The Isle - info: Isle V3 map</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#2f3742">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="styles/vendors.css">
+	<link rel="stylesheet" href="styles/style.css?1552915608581">
+</head>
+
+<body>
+	<!-- [if lte IE 9]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+	<div class="wrap-site">
+		<header class="header">
+			<div class="wrap">
+				<div class="row align-items-center">
+					<div class="col-auto">
+						<a class="header__logo" href="index.html">
+							<svg class="svg-icon">
+								<use xlink:href="#si-fossil" />
+							</svg>
+						</a>
+					</div>
+					<div class="col-auto">
+						<div class="header__title">The Isle - Info</div>
+					</div>
+					<div class="col-sm-auto ml-sm-auto position-static">
+						<nav class="top-nav">
+							<ul class="top-nav__list">
+								<li class="top-nav__item"><a class="top-nav__link" href="index.html">Map Thenyaw</a>
+								</li>
+								<li class="top-nav__item"><a class="top-nav__link" href="map-v3.html">Map v3</a>
+								</li>
+								<li class="top-nav__item"><a class="top-nav__link" href="contacts.html">Contacts</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main">
+			<section class="section">
+				<div class="wrap">
+					<h1 class="mb-5 text-center">Isle V3 map</h1>
+					<div class="mb-3">Under development, beta version</div>
+					<div class="mb-5 mb-md-1 user-coords">
+						<form class="row mt-n3 justify-content-center js-coords-form" action="">
+							<div class="col-sm-auto mt-3 d-flex align-items-center">
+								<label class="mr-2 mb-0 user-coords__label" for="lat">Lat:</label>
+								<input class="form-control user-coords__input" id="lat" type="number" name="lat" placeholder="-119" required>
+							</div>
+							<div class="col-sm-auto mt-3 d-flex align-items-center">
+								<label class="mr-2 mb-0 user-coords__label" for="lng">Long:</label>
+								<input class="form-control user-coords__input" id="lng" type="number" name="lng" placeholder="243" required>
+							</div>
+							<div class="col-sm-auto mt-3 text-right">
+								<button class="btn btn--blue user-coords__btn">
+									<svg class="svg-icon mr-2">
+										<use xlink:href="#si-map-point" />
+									</svg>Set the point</button>
+							</div>
+						</form>
+					</div>
+					<div class="position-relative map">
+						<div class="js-tooltip map-settings map-settings--pos-map" data-tippy-placement="bottom"><i class="map-settings__icon" title="Настройки карты"><svg class="svg-icon"><use xlink:href="#si-settings-work-tool"/></svg></i>
+							<form class="d-none js-tooltip-content map-settings__content">
+								<ul class="py-3 map-settings__list">
+									<li class="mb-2">
+										<label class="mr-2 ui-switch">
+											<input class="visuallyhidden ui-switch__input" type="checkbox" name="hidden-markers"><i class="ui-switch__icon"></i><span class="ui-switch__text">Hidden markers</span>
+										</label>
+									</li>
+									<li class="map-settings__item">
+										<label class="mr-2 ui-switch">
+											<input class="visuallyhidden ui-switch__input" type="checkbox" name="invisible-markers"><i class="ui-switch__icon"></i><span class="ui-switch__text">Invisible markers</span>
+										</label>
+									</li>
+								</ul>
+							</form>
+						</div><span class="map__cursor-position" id="position"></span>
+						<picture class="responsive-img d-block map__layout map__layout--v3" data-map-name="v3">
+							<source media="(min-width: 1200px)" data-srcset="img/media/map-v3-big.jpg">
+								<img class="lazyload map__img" data-src="img/media/map-v3.jpg" alt="map-v3">
+						</picture>
+						<ul class="map__markers">
+							<li class="js-tooltip map__marker" data-lat="-360" data-lng="45" style="left: 28.9%; top: 48.6%"><i class="map__marker-icon" title="Gulf tower"><svg class="svg-icon"><use xlink:href="#si-map-point"/></svg></i>
+								<div class="d-none js-tooltip-content marker-tooltip">
+									<div class="marker-tooltip__title">Gulf tower</div>
+									<div class="d-flex ml-n2">
+										<dl class="d-flex ml-2 marker-tooltip__coords"><dt class="mr-2">Lat:</dt>
+											<dd>-360</dd>
+										</dl>
+										<dl class="d-flex ml-2 marker-tooltip__coords"><dt class="mr-2">Lng:</dt>
+											<dd>45</dd>
+										</dl>
+									</div>
+								</div>
+							</li>
+							<li class="js-tooltip map__marker" data-lat="35" data-lng="-160" style="left: 55.7%; top: 35.3%"><i class="map__marker-icon" title="The Dam"><svg class="svg-icon"><use xlink:href="#si-map-point"/></svg></i>
+								<div class="d-none js-tooltip-content marker-tooltip">
+									<div class="marker-tooltip__title">The Dam</div>
+									<div class="d-flex ml-n2">
+										<dl class="d-flex ml-2 marker-tooltip__coords"><dt class="mr-2">Lat:</dt>
+											<dd>35</dd>
+										</dl>
+										<dl class="d-flex ml-2 marker-tooltip__coords"><dt class="mr-2">Lng:</dt>
+											<dd>-160</dd>
+										</dl>
+									</div>
+								</div>
+							</li>
+							<li class="js-player-marker d-none map__marker" style="left: 50%; top: 50%" data-tippy-content="You, lat: {{ lat }}, lng: {{ lng }}"><i class="map__player-icon"><svg class="svg-icon"><use xlink:href="#si-dino-marker"/></svg></i>
+							</li>
+						</ul>
+					</div><em class="d-block mt-3 footnote">The marker is set through the search, as well as the coordinates of the cursor is an inaccuracy. But one way or another will help you to understand the approximate location.</em>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="wrap">
+				<div class="row text-center">
+					<div class="col-md-auto mr-md-auto">
+						<div class="footer__copyright">© 2019 MIT License</div>
+					</div>
+					<div class="col-md-auto ml-md-auto">
+						<div class="footer__created">Made by - Antroll</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg"></div>
+	<script>
+		(function(w){
+			var v = !("IntersectionObserver" in w) ? "8" : "10";
+			w.LazyLoad || document.write('<script src="vendors/lazyload_v' + v + '.min.js"><\/script>')
+		}(window));
+	</script>
+	<script src="scripts/vendors.js"></script>
+	<script src="scripts/main.js?1552915608581"></script>
+</body>
+
+</html>
