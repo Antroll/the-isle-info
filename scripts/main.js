@@ -134,7 +134,7 @@ var APP = {
 		});
 	},
 
-	calcMapCoordinates: function calcMapCoordinates() {
+	pos2loc: function pos2loc() {
 		var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.01;
 		var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.01;
 		var mapName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'thenyaw';
@@ -149,18 +149,29 @@ var APP = {
 		};
 	},
 
-	calcMapPercentage: function calcMapPercentage() {
+	loc2pos: function loc2pos() {
 		var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0.01;
 		var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0.01;
 		var mapName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'thenyaw';
 
-		var latOfPercent = mapName === 'thenyaw' ? 0.149 : 0.0625;
-		var lngOfPercent = mapName === 'thenyaw' ? 0.146 : 0.0625;
-		var mapX = 50 + x * latOfPercent;
-		var mapY = 50 + y * lngOfPercent;
+		var mapThenyaw = mapName === 'thenyaw';
+		var mapV3 = mapName === 'v3';
+		var percentInLat = void 0;
+		var percentInLng = void 0;
+		if (mapThenyaw) {
+			percentInLat = x >= 0 ? 0.149 : 0.138;
+			percentInLng = y >= 0 ? 0.146 : 0.157;
+		} else if (mapV3) {
+			percentInLat = x >= 0 ? 0.08 : 0.06;
+			percentInLng = y >= 0 ? 0.05 : 0.08;
+			// в точке -509, 1 лнг это 0.074%
+			// в точке -345, 1 лнг это 0.079%
+			// в точке 280, 1 лнг это 0.0463%
+			// в точке 578, 1 лнг это 0.056%
+		}
 		return {
-			top: mapY,
-			left: mapX
+			left: 50 + x * percentInLat,
+			top: 50 + y * percentInLng
 		};
 	},
 
@@ -184,7 +195,7 @@ var APP = {
 			var playerMarker = document.querySelector('.js-player-marker');
 			var lat = form.querySelector('input[name="lat"]').value * 1;
 			var lng = form.querySelector('input[name="lng"]').value * 1;
-			var pos = APP.calcMapPercentage(lat, lng, mapName);
+			var pos = APP.loc2pos(lat, lng, mapName);
 
 			if (pos.left > 100 || pos.top > 100 || pos.top < 0 || pos.left < 0) {
 				alert('Неверные координаты');
@@ -205,7 +216,7 @@ var APP = {
 			var positionField = document.getElementById('position');
 			mapLayout.onmousemove = function (e) {
 				var posPercent = getPosition(e);
-				var posLatLng = APP.calcMapCoordinates(posPercent.x, posPercent.y, mapName);
+				var posLatLng = APP.pos2loc(posPercent.x, posPercent.y, mapName);
 
 				positionField.innerHTML = 'lat: ' + posLatLng.left + ', long: ' + posLatLng.top;
 				positionField.style.display = 'block';
