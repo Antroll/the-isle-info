@@ -31,6 +31,8 @@ var APP = {
 		APP.tooltipsInit();
 		APP.mouseOverMap();
 
+		APP.modalGallery();
+
 		APP.buttons();
 		APP.closeOnFocusLost();
 	},
@@ -291,12 +293,207 @@ var APP = {
 		};
 	},
 
+	modalCloseBtn: function modalCloseBtn(modalObject) {
+		var closeBtn = modalObject.modal.querySelector('.js-modal-close');
+		if (!closeBtn) {
+			return;
+		}
+		modalObject.modal.querySelector('.js-modal-close').addEventListener('click', function (e) {
+			e.preventDefault();
+			modalObject.close();
+		});
+	},
+
+	modalCloseListener: function modalCloseListener(modalObject) {
+		modalObject.modalBoxContent.addEventListener('click', function (e) {
+			if (e.target == modalObject.modalBoxContent) {
+				modalObject.close();
+			}
+		});
+	},
+
+	modalGallery: function modalGallery() {
+		var template = "<div class=\"modal-gallery\">\n\t\t\t<span class=\"js-modal-close modal__close modal__close--pos-gallery\">\xD7</span>\n\t\t\t<div class=\"swiper-container modal-gallery__slider\">\n\t\t\t\t<div class=\"swiper-wrapper\">\n\t\t\t\t\t<div class=\"modal-gallery__slide swiper-slide\" data-for>\n\t\t\t\t\t\t<div class=\"responsive-img modal-gallery__img-wrap\">\n\t\t\t\t\t\t\t<img class=\"swiper-lazy\" alt=\"\" data-object-fit=\"scale-down\">\n\t\t\t\t\t\t\t<div class=\"swiper-lazy-preloader swiper-lazy-preloader-white\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"swiper-button-prev\"></div>\n\t\t\t\t<div class=\"swiper-button-next\"></div>\n\t\t\t</div>\n\t\t\t<div class=\"modal-gallery__footer\">\n\t\t\t\t<div class=\"wrap modal-gallery__footer-inner\">\n\t\t\t\t\t<div class=\"modal-gallery__title\"></div>\n\t\t\t\t\t<div class=\"modal-gallery__paging\"></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>";
+
+		var init = function init() {
+			APP.documentOn('click', '.js-gallery-item', function (e) {
+				e.preventDefault();
+				closeTippy(this);
+				var itemsArr = getItems(this);
+				var index = itemsArr.indexOf(this) + 1;
+				var dataArr = getDataArr(itemsArr);
+				var content = parseTemplate(template, dataArr);
+				openModal(content, index);
+			});
+		};
+
+		var closeTippy = function closeTippy(elem) {
+			elem.closest('.tippy-popper')._tippy.hide();
+		};
+
+		var createSlider = function createSlider(elem) {
+			var setTitle = function setTitle(obj) {
+				var title = obj.el.querySelector('.swiper-slide-active img').getAttribute('data-title');
+				obj.el.closest('.modal-gallery').querySelector('.modal-gallery__title').innerHTML = title;
+			};
+			var slidesCount = elem.querySelectorAll('.swiper-slide').length;
+			var mySwiper = new Swiper(elem, {
+				loop: slidesCount > 1 ? true : false,
+				allowTouchMove: false,
+				lazy: {
+					loadPrevNext: true,
+					loadOnTransitionStart: true
+				},
+				effect: 'fade',
+				fadeEffect: {
+					crossFade: true
+				},
+				speed: 200,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev'
+				},
+				pagination: {
+					el: '.modal-gallery__paging',
+					type: 'fraction'
+				},
+				init: false
+			});
+			mySwiper.on('init', function () {
+				var _this = this;
+
+				setTimeout(function () {
+					setTitle(_this);
+				}, 10);
+			});
+			mySwiper.on('slideChange', function () {
+				var _this2 = this;
+
+				setTimeout(function () {
+					setTitle(_this2);
+				}, 10);
+			});
+			mySwiper.on('lazyImageReady', function (slideEl, imageEl) {
+				var images = this.$el[0].querySelectorAll('[data-object-fit]');
+				APP.objectFitFallback(images);
+			});
+			mySwiper.init();
+
+			Array.prototype.forEach.call(elem.querySelectorAll('img'), function (item) {
+				item.addEventListener('click', function (e) {
+					mySwiper.slideNext();
+				});
+			});
+
+			return mySwiper;
+		};
+
+		var getItems = function getItems(elem) {
+			var gallery = elem.closest('.js-gallery');
+			var items = [];
+			Array.prototype.forEach.call(gallery.querySelectorAll('.js-gallery-item'), function (item, i) {
+				var notCloned = !item.closest('.swiper-slide-duplicate');
+				if (notCloned) {
+					items.push(item);
+				}
+			});
+			return items;
+		};
+
+		var getDataArr = function getDataArr(nodeArr) {
+			var dataArr = [];
+			for (var i = 0; i < nodeArr.length; i++) {
+				var item = nodeArr[i];
+				var title = item.getAttribute('data-title') ? item.getAttribute('data-title') : '';
+				dataArr.push({
+					src: item.getAttribute('href'),
+					title: title
+				});
+			}
+
+			return dataArr;
+		};
+
+		var openModal = function openModal(content, index) {
+			var tingleModal = new tingle.modal({
+				closeMethods: ['overlay', 'button', 'escape'],
+				closeLabel: "Close",
+				cssClass: ['tingle-modal--gallery'],
+				beforeOpen: function beforeOpen() {
+					document.body.style.marginRight = APP.getScrollbarSize() + 'px';
+				},
+				onOpen: function onOpen() {
+					document.activeElement.blur();
+					APP.modalCloseBtn(this);
+					APP.modalCloseListener(this);
+					var elem = this.modal.querySelector('.swiper-container');
+					var slider = createSlider(elem);
+					slider.slideTo(index);
+				},
+				beforeClose: function beforeClose() {
+					document.body.removeAttribute("style");
+					return true;
+				},
+				onClose: function onClose() {
+					tingleModal.destroy();
+				}
+			});
+			tingleModal.setContent(content);
+			tingleModal.open();
+		};
+
+		var createElementFromHTML = function createElementFromHTML(htmlString) {
+			var div = document.createElement('div');
+			div.innerHTML = htmlString.trim();
+
+			return div.firstChild;
+		};
+
+		var getString = function () {
+			var DIV = document.createElement("div");
+
+			if ('outerHTML' in DIV) return function (node) {
+				return node.outerHTML;
+			};
+
+			return function (node) {
+				var div = DIV.cloneNode();
+				div.appendChild(node.cloneNode(true));
+				return div.innerHTML;
+			};
+		}();
+
+		function parseTemplate(string, array) {
+			var template = createElementFromHTML(string);
+			var itemTemplate = template.querySelector('[data-for]');
+			var list = itemTemplate.parentNode;
+
+			itemTemplate.removeAttribute('data-for');
+			list.removeChild(itemTemplate);
+
+			for (var i = 0; i < array.length; i++) {
+				var data = array[i];
+				var itemStr = getString(itemTemplate);
+				// itemStr = itemStr.replace('{{ src }}', data.src)
+
+				var renderedItem = createElementFromHTML(itemStr);
+				var img = renderedItem.querySelector('img');
+				img.setAttribute('data-src', data.src);
+				img.setAttribute('data-title', data.title);
+				list.appendChild(renderedItem);
+			}
+			return template;
+		}
+
+		init();
+	},
+
 	truncateText: function truncateText(selector) {
 		var cutText = function cutText() {
 			for (var i = 0; i < selector.length; i++) {
 				var text = selector[i];
 				var elemMaxHeight = parseInt(getComputedStyle(text).maxHeight, 10);
-				var elemHeight = parseInt(getComputedStyle(text).height, 10);
+				var elemHeight = parseInt(text.offsetHeight, 10);
 				var maxHeight = elemMaxHeight ? elemMaxHeight : elemHeight;
 				shave(text, maxHeight);
 			}
@@ -422,6 +619,29 @@ var APP = {
 		})();
 	},
 
+	documentOn: function documentOn(eventName, selectorStr, callback) {
+		var thatElement = function thatElement(element, selector) {
+			var className = selector.replace('.', '');
+			var closestElem = element.closest(selector);
+			if (element.hasClass(className)) {
+				return element;
+			} else if (closestElem) {
+				return closestElem;
+			} else {
+				return false;
+			}
+		};
+
+		document.addEventListener(eventName, function (event) {
+
+			var elem = thatElement(event.target, selectorStr);
+			if (elem) {
+				var cb = callback.bind(elem);
+				cb(event, elem);
+			}
+		});
+	},
+
 	detectIE: function detectIE() {
 		/**
    * detect IE
@@ -456,6 +676,18 @@ var APP = {
 			// other browser
 			return false;
 		})();
+	},
+
+	getScrollbarSize: function getScrollbarSize() {
+		var scrollbarSize = void 0;
+		if (scrollbarSize === undefined) {
+			var scrollDiv = document.createElement('div');
+			scrollDiv.style.cssText = 'width: 99px; height: 99px; overflow: scroll; position: absolute; top: -9999px;';
+			document.body.appendChild(scrollDiv);
+			scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+			document.body.removeChild(scrollDiv);
+		}
+		return scrollbarSize;
 	},
 
 	throttle: function throttle(callback, limit) {
