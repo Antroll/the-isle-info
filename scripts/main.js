@@ -13,6 +13,7 @@ var APP = {
 	initBefore: function initBefore() {
 		APP.polyfills();
 		// APP.isBrowserFocus()
+		// APP.getClipboardText()
 		APP.svgIcons();
 		document.documentElement.className = document.documentElement.className.replace("no-js", "js");
 	},
@@ -28,6 +29,7 @@ var APP = {
 
 		APP.setCurrentPosition();
 		APP.mapOptions();
+		APP.setFixedCoordsForm();
 		APP.tooltipsInit();
 		APP.mouseOverMap();
 
@@ -44,7 +46,7 @@ var APP = {
 	getClipboardText: function getClipboardText() {
 		navigator.clipboard.readText().then(function (text) {
 			return text;
-			// console.log('Pasted content: ', text);
+			console.log('Pasted content: ', text);
 		}).catch(function (err) {
 			// console.warn('Failed to read clipboard contents: ', err);
 		});
@@ -209,6 +211,17 @@ var APP = {
 				updateTooltip(playerMarker, lat, lng);
 			}
 		});
+	},
+
+	setFixedCoordsForm: function setFixedCoordsForm() {
+		var myElement = document.querySelector(".js-coords-form");
+		if (myElement) {
+			var offset = myElement.getBoundingClientRect();
+			var headroom = new Headroom(myElement, {
+				"offset": offset.top
+			});
+			headroom.init();
+		}
 	},
 
 	mouseOverMap: function mouseOverMap() {
@@ -617,6 +630,10 @@ var APP = {
 			// set the initial state (but only if browser supports the Page Visibility API)
 			if (document[hidden] !== undefined) onchange({ type: document[hidden] ? "blur" : "focus" });
 		})();
+	},
+
+	onBrowserFocus: function onBrowserFocus() {
+		console.log('focused');
 	},
 
 	documentOn: function documentOn(eventName, selectorStr, callback) {

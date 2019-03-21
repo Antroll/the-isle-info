@@ -26,7 +26,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="styles/vendors.css">
-	<link rel="stylesheet" href="styles/style.css?1553122844621">
+	<link rel="stylesheet" href="styles/style.css?1553203819452">
 </head>
 
 <body>
@@ -67,27 +67,29 @@
 					<h1 class="mb-5 text-center">Isle V3 map</h1>
 					<div class="mb-3">Under development, beta version</div>
 					<div class="mb-5 mb-md-1 user-coords">
-						<form class="row mt-n3 justify-content-end justify-content-md-center js-coords-form" action="">
-							<div class="col-md-auto mt-3 d-flex align-items-center">
-								<label class="mr-2 mb-0 user-coords__label" for="lat">Lat:</label>
-								<input class="form-control user-coords__input" id="lat" type="number" name="lat" min="-800" max="800" placeholder="-119" required>
-							</div>
-							<div class="col-md-auto mt-3 d-flex align-items-center">
-								<label class="mr-2 mb-0 user-coords__label" for="lng">Long:</label>
-								<input class="form-control user-coords__input" id="lng" type="number" name="lng" min="-800" max="800" placeholder="243" required>
-							</div>
-							<div class="col-auto mt-3 text-right order-1 order-md-0">
-								<button class="btn btn--blue user-coords__btn">
-									<svg class="svg-icon mr-2">
-										<use xlink:href="#si-map-point" />
-									</svg>Set the point</button>
-							</div>
-							<div class="col col-md-auto mt-3">
-								<button class="btn btn--link user-coords__btn user-coords__btn--reset" type="reset"><span>×</span>Clear</button>
+						<form class="js-coords-form user-coords__inner" action="">
+							<div class="row mt-n3 justify-content-end justify-content-md-center">
+								<div class="col-md-auto mt-3 d-flex align-items-center">
+									<label class="mr-2 mb-0 user-coords__label" for="lat">Lat:</label>
+									<input class="form-control user-coords__input" id="lat" type="number" name="lat" min="-800" max="800" placeholder="-119" required>
+								</div>
+								<div class="col-md-auto mt-3 d-flex align-items-center">
+									<label class="mr-2 mb-0 user-coords__label" for="lng">Long:</label>
+									<input class="form-control user-coords__input" id="lng" type="number" name="lng" min="-800" max="800" placeholder="243" required>
+								</div>
+								<div class="col-auto mt-3 text-right order-1 order-md-0">
+									<button class="btn btn--blue user-coords__btn">
+										<svg class="svg-icon mr-2">
+											<use xlink:href="#si-map-point" />
+										</svg>Set the point</button>
+								</div>
+								<div class="col col-md-auto mt-3">
+									<button class="btn btn--link user-coords__btn user-coords__btn--reset" type="reset"><span>×</span>Clear</button>
+								</div>
 							</div>
 						</form>
 					</div>
-					<div class="position-relative map">
+					<div class="map">
 						<div class="js-tooltip map-settings map-settings--pos-map" data-tippy-placement="bottom"><i class="map-settings__icon" title="Настройки карты"><svg class="svg-icon"><use xlink:href="#si-settings-work-tool"/></svg></i>
 							<form class="d-none js-tooltip-content map-settings__content">
 								<ul class="py-3 map-settings__list">
@@ -212,7 +214,7 @@
 					</p>
 					<div class="content-style mt-5">
 						<h3>Credits</h3>
-						<p>Big thanks to <a href="https://www.deviantart.com/skudde" target="_blank">Skudde</a> for this cool map. I hope he will continue updating your creation.</p>
+						<p>Big thanks to <a href="https://www.deviantart.com/skudde" target="_blank">Skudde</a> for this cool map. I hope he will continue updating his creation.</p>
 					</div>
 				</div>
 			</section>
@@ -231,7 +233,7 @@
 			</div>
 		</footer>
 	</div>
-	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?1553122844621"></div>
+	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?1553203819452"></div>
 	<script>
 		(function(w){
 			var v = !("IntersectionObserver" in w) ? "8" : "10";
@@ -239,7 +241,7 @@
 		}(window));
 	</script>
 	<script src="scripts/vendors.js"></script>
-	<script src="scripts/main.js?1553122844621"></script>
+	<script src="scripts/main.js?1553203819452"></script>
 </body>
 
 </html>
