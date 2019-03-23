@@ -366,6 +366,9 @@ var APP = {
 					nextEl: '.swiper-button-next',
 					prevEl: '.swiper-button-prev'
 				},
+				keyboard: {
+					enabled: true
+				},
 				pagination: {
 					el: '.modal-gallery__paging',
 					type: 'fraction'
