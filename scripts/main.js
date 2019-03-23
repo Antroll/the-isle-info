@@ -216,9 +216,9 @@ var APP = {
 	setFixedCoordsForm: function setFixedCoordsForm() {
 		var myElement = document.querySelector(".js-coords-form");
 		if (myElement) {
-			var offset = myElement.getBoundingClientRect();
+			var offsetTop = window.pageYOffset + myElement.getBoundingClientRect().top;
 			var headroom = new Headroom(myElement, {
-				"offset": offset.top
+				"offset": offsetTop
 			});
 			headroom.init();
 		}
