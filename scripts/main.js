@@ -26,6 +26,8 @@ var APP = {
 
 		var myMask = new APP.Mask(".js-tel");
 		myMask.init();
+		APP.buttons();
+		APP.closeOnFocusLost();
 
 		APP.setCurrentPosition();
 		APP.mapOptions();
@@ -34,22 +36,24 @@ var APP = {
 		APP.mouseOverMap();
 
 		APP.modalGallery();
-
-		APP.buttons();
-		APP.closeOnFocusLost();
 	},
 
 	initOnLoad: function initOnLoad() {
 		APP.truncateText(document.querySelectorAll('.js-dot'));
 	},
 
-	getClipboardText: function getClipboardText() {
+	getClipboardText: function getClipboardText(cb) {
 		navigator.clipboard.readText().then(function (text) {
-			return text;
-			console.log('Pasted content: ', text);
+			cb(text);
 		}).catch(function (err) {
-			// console.warn('Failed to read clipboard contents: ', err);
+			console.warn('Failed to read clipboard contents: ', err);
 		});
+	},
+
+	parseGameCoords: function parseGameCoords(string) {
+		var clearStr = string.replace(/(?:\r\n|\r|\n)/g, ' ');
+		var re = /Lat\: (-?\d+).+Long\: (-?\d+)/i;
+		return clearStr.match(re);
 	},
 
 	buttons: function buttons() {
@@ -58,6 +62,62 @@ var APP = {
 				document.body.classList.toggle('nav-showed');
 			});
 		});
+
+		var ctrlV = document.querySelector('.js-ctrl-v');
+		if (ctrlV) {
+			var latInput = document.getElementById('lat');
+			var lngInput = document.getElementById('lng');
+			var checkPermission = function checkPermission(cb) {
+				navigator.permissions.query({ name: "clipboard-read" }).then(function (result) {
+					if (result.state == "granted" || result.state == "prompt") {
+						cb();
+					} else {
+						APP.customAlert("\n\t\t\t\t\t\t\t<div class=\"content-style text-center\">\n\t\t\t\t\t\t\t\t<div class=\"h2 mb-3\">\n\t\t\t\t\t\t\t\t\tThis feature requires allowwed clipboard read permissions.\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<p>Please grant access or just use the form.</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t");
+					}
+				});
+			};
+			ctrlV.addEventListener('click', function (e) {
+				e.preventDefault();
+				checkPermission(function () {
+					APP.getClipboardText(function (text) {
+						var coords = APP.parseGameCoords(text);
+						if (coords) {
+							latInput.value = coords[1];
+							lngInput.value = coords[2];
+							lngInput.closest('form').querySelector('button[type=submit]').click();
+						} else {
+							console.log(text);
+							APP.customAlert("\n\t\t\t\t\t\t\t\t<div class=\"content-style text-center\">\n\t\t\t\t\t\t\t\t\t<div class=\"h1 mb-4\">Invalid clypboard text</div>\n\t\t\t\t\t\t\t\t\t<p>Youre text is: <b>\"" + text + "\"</b></p>\n\t\t\t\t\t\t\t\t\t<p>Please copy in-game coordinates or use the form</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t");
+						}
+					});
+				});
+			});
+		}
+	},
+
+	customAlert: function customAlert(content) {
+		var tingleModal = new tingle.modal({
+			closeMethods: ['overlay', 'button', 'escape'],
+			closeLabel: "Close",
+			cssClass: ['tingle-modal--alert'],
+			beforeOpen: function beforeOpen() {
+				document.body.style.marginRight = APP.getScrollbarSize() + 'px';
+			},
+			onOpen: function onOpen() {
+				document.activeElement.blur();
+				APP.modalCloseBtn(this);
+				APP.modalCloseListener(this);
+			},
+			beforeClose: function beforeClose() {
+				document.body.removeAttribute("style");
+				return true;
+			},
+			onClose: function onClose() {
+				tingleModal.destroy();
+			}
+		});
+		tingleModal.setContent("\n\t\t\t<div class =\"modal modal--alert\">\n\t\t\t\t<span class=\"js-modal-close modal__close\">\xD7</span>\n\t\t\t\t" + content + "\n\t\t</div>");
+		tingleModal.open();
 	},
 
 	closeOnFocusLost: function closeOnFocusLost() {
@@ -201,14 +261,23 @@ var APP = {
 			var lng = form.querySelector('input[name="lng"]').value * 1;
 			var pos = APP.loc2pos(lat, lng, mapName);
 
+			playerMarker.classList.add('d-none');
+
 			if (pos.left > 100 || pos.top > 100 || pos.top < 0 || pos.left < 0) {
-				alert('Неверные координаты');
+				APP.customAlert("\n\t\t\t\t\t<div class=\"h2 mb-0 text-center\">\n\t\t\t\t\t\t<p>Unfortunately, it is not possible to set a point as it is outside the map.</p>\n\t\t\t\t\t</div>\n\t\t\t\t");
 				console.log(pos);
 			} else {
+				var scroll = new SmoothScroll();
 				playerMarker.classList.remove('d-none');
 				playerMarker.style.left = pos.left + '%';
 				playerMarker.style.top = pos.top + '%';
 				updateTooltip(playerMarker, lat, lng);
+				scroll.animateScroll(playerMarker, 0, {
+					speed: 500,
+					offset: function offset(anchor) {
+						return window.innerHeight / 2;
+					}
+				});
 			}
 		});
 	},
