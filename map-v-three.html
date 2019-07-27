@@ -13,7 +13,7 @@
 	</script>
 	<meta charset="utf-8">
 	<title>The Isle - info: Isle V3 map</title>
-	<meta name="description" content="">
+	<meta name="description" content>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png?v=qABE66X3wp">
 	<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png?v=qABE66X3wp">
@@ -26,7 +26,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="styles/vendors.css">
-	<link rel="stylesheet" href="styles/style.css?1553899120358">
+	<link rel="stylesheet" href="styles/style.css?1564240206185">
 </head>
 
 <body>
@@ -46,16 +46,22 @@
 					<div class="col-auto">
 						<div class="header__title">The Isle - Info</div>
 					</div>
-					<div class="col-sm-auto ml-sm-auto position-static">
+					<div class="col-auto ml-auto">
+						<button class="d-lg-none menu-trigger menu-trigger--pos-header" type="button"><i class="menu-trigger__icon"></i>
+						</button>
 						<nav class="top-nav">
-							<ul class="top-nav__list">
-								<li class="top-nav__item"><a class="top-nav__link" href="index.html">Map Thenyaw</a>
-								</li>
-								<li class="top-nav__item"><a class="top-nav__link" href="map-v-three.html">Map v3</a>
-								</li>
-								<li class="top-nav__item"><a class="top-nav__link" href="contacts.html">Contacts</a>
-								</li>
-							</ul>
+							<div class="top-nav__scroll">
+								<ul class="top-nav__list">
+									<li class="top-nav__item"><a class="top-nav__link" href="map-v-three.html">Map v3</a>
+									</li>
+									<li class="top-nav__item"><a class="top-nav__link" href="map-thenyaw.html">Map Thenyaw</a>
+									</li>
+									<li class="top-nav__item"><a class="top-nav__link" href="stats.html">Stats</a>
+									</li>
+									<li class="top-nav__item"><a class="top-nav__link" href="contacts.html">Contacts</a>
+									</li>
+								</ul>
+							</div>
 						</nav>
 					</div>
 				</div>
@@ -66,8 +72,8 @@
 				<div class="wrap">
 					<h1 class="mb-5 text-center">Isle V3 map</h1>
 					<div class="mb-5 mb-md-1 user-coords">
-						<form class="js-coords-form user-coords__inner" action="">
-							<div class="row mt-n3 justify-content-end justify-content-md-center">
+						<form class="js-coords-form user-coords__inner" action>
+							<div class="row mt-n3 justify-content-end justify-content-md-start">
 								<div class="col-md-auto mt-3 mr-auto order-2 order-md-0">
 									<button class="btn btn--green-gradient w-100 js-ctrl-v user-coords__btn" type="button">
 										<svg class="svg-icon mr-2">
@@ -238,15 +244,10 @@
 			</div>
 		</footer>
 	</div>
-	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?1553899120358"></div>
-	<script>
-		(function(w){
-			var v = !("IntersectionObserver" in w) ? "8" : "10";
-			w.LazyLoad || document.write('<script src="vendors/lazyload_v' + v + '.min.js"><\/script>')
-		}(window));
-	</script>
-	<script src="scripts/vendors.js?1553899120358"></script>
-	<script src="scripts/main.js?1553899120358"></script>
+	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?1564240206185"></div>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign"></script>
+	<script src="scripts/vendors.js?1564240206185"></script>
+	<script src="scripts/main.js?1564240206185"></script>
 </body>
 
 </html>
