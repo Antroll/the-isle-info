@@ -1,0 +1,17 @@
+@mixin font-urls($name, $dir: '', $path: $path-font) {
+	src: url($path + $dir + $name +'.eot');
+	src:
+	url($path + $dir + $name +'.woff2') format('woff2')
+	,url($path + $dir + $name +'.woff') format('woff')
+	,url($path + $dir + $name +'.ttf') format('ttf')
+	,url($path + $dir + $name +'.svg#'+ $name) format('svg')
+	,url($path + $dir + $name +'.eot?#iefix') format('embedded-opentype')
+	;
+}
+
+// @font-face {
+// 	@include font-urls('MuseoSansCyrl-300');
+// 	font-family: $font-1;
+// 	font-weight: $normal;
+// 	font-style: normal;
+// }

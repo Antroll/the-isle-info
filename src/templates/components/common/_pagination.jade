@@ -1,0 +1,14 @@
+mixin pagination
+	ul(block="pagination")&attributes(attributes)
+		li(elem="item" mod="prev") <
+		li.active(elem="item")
+			span 1
+		li(elem="item")
+			a(href=href) 2
+		li(elem="item")
+			a(href=href) 3
+		li(elem="item")
+			span ...
+		li(elem="item")
+			a(href=href) 10
+		li(elem="item" mod="next") <

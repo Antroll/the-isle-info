@@ -1,0 +1,304 @@
+{
+	"dinosaurs": [
+		{
+			"name": "Allosaurus",
+			"id": 0,
+			"diet": "carnivore",
+			"baseDamage": 300,
+			"alernateAttack": "n/a",
+			"health": 2800,
+			"mass": 2800,
+			"speed": 34.2,
+			"ambush": 44.5,
+			"sprint": "3:20",
+			"bleedDamage": 25,
+			"growTime": {
+				"hatch": 30,
+				"juvie": 60,
+				"sub": 0,
+				"adult": 120,
+				"total": 180
+			}
+		},
+		{
+			"name": "Ceratosaurus",
+			"id": 1,
+			"diet": "carnivore",
+			"baseDamage": 350,
+			"alernateAttack": "n/a",
+			"health": 2250,
+			"mass": 2250,
+			"speed": 36.6,
+			"ambush": 40.3,
+			"sprint": "2:30",
+			"bleedDamage": 8,
+			"growTime": {
+				"hatch": 30,
+				"juvie": 50,
+				"sub": 0,
+				"adult": 90,
+				"total": 150
+			}
+		},
+		{
+			"name": "Carnotaurus",
+			"id": 2,
+			"diet": "carnivore",
+			"baseDamage": 200,
+			"alernateAttack": "n/a",
+			"health": 2170,
+			"mass": 2170,
+			"speed": 52.2,
+			"ambush": "n/a",
+			"sprint": "3:40",
+			"bleedDamage": 15,
+			"growTime": {
+				"hatch": 25,
+				"juvie": 40,
+				"sub": 0,
+				"adult": 70,
+				"total": 110
+			}
+		},
+		{
+			"name": "Diabloceratops",
+			"id": 3,
+			"diet": "carnivore",
+			"baseDamage": 350,
+			"alernateAttack": "n/a",
+			"health": 3250,
+			"mass": 3250,
+			"speed": 31.6,
+			"ambush": "n/a",
+			"sprint": "2:30",
+			"bleedDamage": 18,
+			"growTime": {
+				"hatch": 25,
+				"juvie": 80,
+				"sub": 0,
+				"adult": 100,
+				"total": 180
+			}
+		},
+		{
+			"name": "Dilophosaurus",
+			"id": 4,
+			"diet": "carnivore",
+			"baseDamage": 150,
+			"alernateAttack": "n/a",
+			"health": 1050,
+			"mass": 1200,
+			"speed": 38.8,
+			"ambush": 45.5,
+			"sprint": "2:30",
+			"bleedDamage": 50,
+			"growTime": {
+				"hatch": 20,
+				"juvie": 50,
+				"sub": 0,
+				"adult": 60,
+				"total": 110
+			}
+		},
+		{
+			"name": "Dryosaurus",
+			"id": 5,
+			"diet": "carnivore",
+			"baseDamage": 20,
+			"alernateAttack": "n/a",
+			"health": 500,
+			"mass": 700,
+			"speed": 41.5,
+			"ambush": "n/a",
+			"sprint": "4:10",
+			"bleedDamage": "n/a",
+			"growTime": {
+				"hatch": 10,
+				"juvie": 15,
+				"sub": 0,
+				"adult": 15,
+				"total": 30
+			}
+		},
+		{
+			"name": "Gallimimus",
+			"id": 6,
+			"diet": "carnivore",
+			"baseDamage": 150,
+			"alernateAttack": "n/a",
+			"health": 800,
+			"mass": 1000,
+			"speed": 48.6,
+			"ambush": "n/a",
+			"sprint": "6:40",
+			"bleedDamage": "n/a",
+			"growTime": {
+				"hatch": 15,
+				"juvie": 40,
+				"sub": 0,
+				"adult": 50,
+				"total": 90
+			}
+		},
+		{
+			"name": "Giganotosaurus",
+			"id": 7,
+			"diet": "carnivore",
+			"baseDamage": 700,
+			"alernateAttack": "n/a",
+			"health": 6000,
+			"mass": 6450,
+			"speed": 30.6,
+			"ambush": 39.8,
+			"sprint": "0:50",
+			"bleedDamage": 40,
+			"growTime": {
+				"hatch": 30,
+				"juvie": 110,
+				"sub": 220,
+				"adult": 60,
+				"total": 390
+			}
+		},
+		{
+			"name": "Maiasaura",
+			"id": 8,
+			"diet": "carnivore",
+			"baseDamage": 175,
+			"alernateAttack": "n/a",
+			"health": 2868,
+			"mass": 2868,
+			"speed": 44.6,
+			"ambush": "n/a",
+			"sprint": "3:00",
+			"bleedDamage": "n/a",
+			"growTime": {
+				"hatch": 20,
+				"juvie": 50,
+				"sub": 0,
+				"adult": 60,
+				"total": 110
+			}
+		},
+		{
+			"name": "Pachycephalosaurus ",
+			"id": 9,
+			"diet": "carnivore",
+			"baseDamage": 350,
+			"alernateAttack": "n/a",
+			"health": 1300,
+			"mass": 1300,
+			"speed": 40,
+			"ambush": "n/a",
+			"sprint": "2:55",
+			"bleedDamage": "n/a",
+			"growTime": {
+				"hatch": 20,
+				"juvie": 70,
+				"sub": 0,
+				"adult": 60,
+				"total": 130
+			}
+		},
+		{
+			"name": "Parasaurolophus",
+			"id": 10,
+			"diet": "carnivore",
+			"baseDamage": 250,
+			"alernateAttack": 750,
+			"health": 3600,
+			"mass": 3600,
+			"speed": 34.2,
+			"ambush": "n/a",
+			"sprint": "4:10",
+			"bleedDamage": "n/a",
+			"growTime": {
+				"hatch": 25,
+				"juvie": 60,
+				"sub": 0,
+				"adult": 120,
+				"total": 180
+			}
+		},
+		{
+			"name": "Suchomimus ",
+			"id": 11,
+			"diet": "carnivore",
+			"baseDamage": 350,
+			"alernateAttack": "n/a",
+			"health": 3600,
+			"mass": 3600,
+			"speed": 30.9,
+			"ambush": 39.3,
+			"sprint": "3:20",
+			"bleedDamage": 20,
+			"growTime": {
+				"hatch": 20,
+				"juvie": 85,
+				"sub": 0,
+				"adult": 150,
+				"total": 235
+			}
+		},
+		{
+			"name": "Triceratops",
+			"id": 12,
+			"diet": "carnivore",
+			"baseDamage": 360,
+			"alernateAttack": 850,
+			"health": 8200,
+			"mass": 8300,
+			"speed": 25.34,
+			"ambush": "n/a",
+			"sprint": "1:06",
+			"bleedDamage": "20 | 25",
+			"growTime": {
+				"hatch": 30,
+				"juvie": 60,
+				"sub": 200,
+				"adult": 100,
+				"total": 360
+			}
+		},
+		{
+			"name": "Tyrannosaurus",
+			"id": 13,
+			"diet": "carnivore",
+			"baseDamage": 1200,
+			"alernateAttack": "n/a",
+			"health": 6500,
+			"mass": 5800,
+			"speed": 33.2,
+			"ambush": 43.1,
+			"sprint": "0:33",
+			"bleedDamage": 10,
+			"growTime": {
+				"hatch": 30,
+				"juvie": 100,
+				"sub": 180,
+				"adult": 100,
+				"total": 380
+			}
+		},
+		{
+			"name": "Utahraptor",
+			"id": 14,
+			"diet": "carnivore",
+			"baseDamage": 200,
+			"alernateAttack": "n/a",
+			"health": 1200,
+			"mass": 1000,
+			"speed": 43.2,
+			"ambush": 56,
+			"sprint": "5:00",
+			"bleedDamage": 20,
+			"growTime": {
+				"hatch": 20,
+				"juvie": 50,
+				"sub": 0,
+				"adult": 50,
+				"total": 100
+			}
+		}
+	]
+}

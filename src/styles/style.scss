@@ -1,0 +1,37 @@
+@import "mixins/all-mixins";
+@import "core/vars";
+
+@import "../vendors/bootstrap/functions";
+@import "../vendors/bootstrap/variables";
+@import "../vendors/bootstrap/mixins";
+
+/*!
+ * CUSTOM STYLES
+ * 2019 Panov A.P.
+ */
+
+@import "core/fonts";
+@import "core/setup";
+@import "core/typography";
+// @import "core/sprite";
+@import "core/shadow-classes";
+@import "core/global-classes";
+@import "core/plugins";
+
+@import "components/common/buttons";
+@import "components/common/forms";
+@import "components/common/checkbox";
+@import "components/common/modals";
+// @import "components/breadcrumbs";
+// @import "components/pagination";
+
+@import "components/layout/layout";
+@import "components/layout/header";
+@import "components/layout/menu-trigger";
+@import "components/layout/footer";
+
+@import "pages/index";
+@import "pages/map";
+@import "pages/stats";
+
+@import "core/animations";

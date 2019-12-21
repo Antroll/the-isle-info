@@ -1,0 +1,26 @@
+mixin checkbox(obj)
+	-obj = obj ? obj : {}
+	label(block="ui-checkbox" mod=obj.mod class=obj?obj.className:null)
+		input.visuallyhidden(elem="input" type="checkbox")&attributes(attributes)
+		i(elem="icon")
+		if block
+			span(elem="text")
+				block
+
+mixin switchbox(obj)
+	-obj = obj ? obj : {}
+	label(block="ui-switch" mod=obj.mod class=obj?obj.className:null)
+		input.visuallyhidden(elem="input" type="checkbox")&attributes(attributes)
+		i(elem="icon")
+		if block
+			span(elem="text")
+				block
+
+mixin radiobox(obj)
+	-obj = obj ? obj : {}
+	label(block="ui-radiobox" mod=obj.mod class=obj?obj.className:null)
+		input.visuallyhidden(elem="input" type="radio")&attributes(attributes)
+		i(elem="icon")
+		if block
+			span(elem="text")
+				block

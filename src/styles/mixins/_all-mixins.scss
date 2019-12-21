@@ -1,0 +1,45 @@
+@import "mixins/rem.mixin";
+@import "mixins/tooltips.mixin";
+@import "mixins/clicker.mixin";
+@import "mixins/verticalize.mixin";
+@import "mixins/checkbox.mixin";
+@import "mixins/truncate-text.mixin";
+@import "mixins/placeholder.mixin";
+
+@function cp($target, $container) {
+	@return round($target / $container * 100% * 100) / 100;
+}
+
+@function em($i, $j) {
+	@return round($i / $j * 1em * 100) / 100;
+}
+
+@function rem($i, $j) {
+	@return round($i / $j * 1em * 100) / 100;
+}
+
+@function vw($i, $j) {
+	@return round($i / ($j / 100) * 1vw * 1000) / 1000;
+}
+
+@mixin tap-color( $color: rgba(0,0,0,0) ) {
+	-webkit-tap-highlight-color: $color;
+}
+
+@mixin grayscale_element($value) {
+	-webkit-filter: #{"grayscale(#{$value})"};
+	-moz-filter: #{"grayscale(#{$value})"};
+	filter:#{"grayscale(#{$value})"};
+}
+
+@mixin col-grow() {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+@mixin col-auto() {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}

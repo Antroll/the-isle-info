@@ -1,0 +1,49 @@
+{
+  "name": "The-isle-info",
+  "license": "MIT",
+  "version": "1.0.0",
+  "dependencies": {},
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp build"
+  },
+  "browserslist": "> 0.25%, not dead, ie >= 11",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "babel-preset-es2015": "^6.18.0",
+    "browser-sync": "*",
+    "csswring": "*",
+    "del": "*",
+    "gulp": "3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-beml": "^1.0.0",
+    "gulp-cached": "*",
+    "gulp-changed": "*",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-include": "*",
+    "gulp-filter": "*",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-if": "*",
+    "gulp-jade": "*",
+    "gulp-jade-inheritance": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-html": "*",
+    "gulp-plumber": "*",
+    "gulp-postcss": "*",
+    "gulp-rename": "*",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-sass-inheritance": "*",
+    "gulp-size": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-sync": "*",
+    "gulp-uglify": "*",
+    "gulp.spritesmith": "^6.2.0",
+    "postcss-import": "*",
+    "postcss-url": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

@@ -1,0 +1,35 @@
+.stats-table {
+	tr {
+		&:hover{
+			td {
+				background-color: darken($color-main-2, 3%);
+			}
+		}
+	}
+
+	&__grow-list{
+		cursor: help;
+
+		&.tippy-active {}
+
+		&:focus{
+			outline: none;
+		}
+	}
+
+	&__list-icon{
+		fill: #fff;
+		opacity: 0.3;
+		transition: all 0.1s;
+
+		.tippy-active &{
+			opacity: 1;
+		}
+	}
+}
+
+.grow-list {
+	&__list{
+		list-style: none;
+	}
+}

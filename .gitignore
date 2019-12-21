@@ -1,12 +1,16 @@
+.idea
 .tmp
 .sass-cache
+*.sublime*
 
 node_modules
 bower_components
+src/styles/core/_sprite.scss
 
 *.7z
 *.zip
 *.rar
 *.map
+*.todo
 
 *.cmd

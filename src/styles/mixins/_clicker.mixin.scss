@@ -1,0 +1,10 @@
+@mixin btn-clicker($color) {
+	&:hover{ background-color: lighten($color, 5%); }
+	&:active{ background-color: darken($color, 5%); }
+}
+@mixin link-clicker() {
+	cursor: pointer;
+	&:active{
+		transform: translateY(1px);
+	}
+}

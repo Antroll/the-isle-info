@@ -1,0 +1,97 @@
+.header{
+	background: darken($color-main-1, 10%);
+	padding: 5px 0 10px;
+
+	@include media-breakpoint-up(sm) {
+		padding: 5px 0;
+	}
+
+	&__logo{
+		fill: #fff;
+		font-size: 60px;
+		&:hover{
+			fill: $color-blue;
+		}
+		svg {
+			display: block;
+			transition: all 0.2s;
+		}
+	}
+
+	&__title{
+		font-size: 22px;
+		font-weight: $fw-semibold;
+	}
+}
+
+.top-nav {
+	position: fixed;
+	z-index: $zindex-fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: rgba($color-main-1, 0.95);
+
+	opacity: 0;
+	visibility: hidden;
+	transition: all .2s;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include media-breakpoint-up(lg) {
+		position: static;
+		opacity: 1;
+		visibility: visible;
+		background: none;
+		display: block;
+	}
+
+	.nav-showed &{
+		opacity: 1;
+		visibility: visible;
+	}
+
+	&__scroll{
+		overflow: hidden;
+		overflow-y: auto;
+		max-height: 100%;
+		padding: 0 20px;
+
+		@include media-breakpoint-up(lg) {
+			overflow: visible;
+			padding: 0;
+			max-height: none;
+		}
+	}
+
+	&__list{
+		list-style: none;
+		@include media-breakpoint-up(lg) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: 0 -10px;
+		}
+	}
+	&__item{
+		margin: 0 0 10px;
+		@include media-breakpoint-up(lg) {
+			margin: 0 10px;
+		}
+	}
+	&__link{
+		text-transform: uppercase;
+		@include media-breakpoint-up(md) {
+			letter-spacing: 0.04em;
+		}
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	&__sub-menu{}
+	&__sub-item{}
+	&__sub-link{}
+}

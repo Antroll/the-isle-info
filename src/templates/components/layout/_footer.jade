@@ -1,0 +1,16 @@
+mixin footer
+	footer(block="footer")
+		.wrap
+			.row.text-center
+				.col-md-auto.mr-md-auto
+					-var currentYear = (DATE.getYear() - 100 + 2000)
+					div(elem="copyright") © #{currentYear} MIT License
+				//- .col-md.text-md-center
+					div(block="b-soc")
+						div(elem="inner")
+							each icon in ['vk','fb','tw','ok','inst','yt']
+								a(elem="item" href=href mod=icon)
+									+svg('soc-'+icon)
+				.col-md-auto.ml-md-auto
+					div(elem="created") Made by - 
+						span(data-tippy-content="<a href='mailto:aliengrey88@gmail.com' target='_blank'>aliengrey88@gmail.com</a>" data-tippy-interactive="true") Antroll

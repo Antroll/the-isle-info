@@ -1,0 +1,85 @@
+%icon-lines {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 2px;
+	background-color: #fff;
+	// .nav-showed & {
+	// 	background-color: $color-blue;
+	// }
+}
+
+.menu-trigger {
+	display: block;
+	position: relative;
+	width: 42px;
+	height: 42px;
+	border: 1px solid $color-main-1;
+	border-radius: 15px;
+	background: none;
+	padding: 0;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&--pos-header {
+		z-index: $zindex-fixed + 1;
+	}
+
+	&__icon {
+		@extend %icon-lines;
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin: -1px auto 0;
+		left: 0;
+		right: 0;
+
+		transition: transform 0.2s, background 0.2s, width 0.2s;
+
+		&:before,
+		&:after {
+			@extend %icon-lines;
+			position: absolute;
+			content: '';
+
+			transition: top 0.2s 0.2s, background 0.2s, transform 0.2s, bottom 0.2s 0.2s, width 0.2s;
+		}
+
+		&:before {
+			top: -6px;
+		}
+
+		&:after {
+			bottom: -6px;
+		}
+
+		.nav-showed & {
+			transform: rotate(45deg);
+			transition: transform 0.2s 0.2s, background 0.2s, width 0.2s 0.2s;
+
+			&:before,
+			&:after {
+				transition: top 0.2s, background 0.2s, bottom 0.2s, transform 0.2s 0.2s, width 0.2s 0.2s;
+			}
+
+			&:before {
+				top: 0;
+			}
+
+			&:after {
+				bottom: 0;
+				transform: rotate(90deg);
+			}
+		}
+	}
+}

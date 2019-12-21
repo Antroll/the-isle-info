@@ -1,0 +1,35 @@
+extends _layout
+block vars
+block title
+	title The Isle - info: rss
+block content
+	section.section(block="news-feed")
+		.wrap(elem="inner")
+			h1.h1.mb-5(elem="title") The Isle announcements
+
+			ul#feed-list(elem="list")
+
+			script#feed-item(type="text/template")
+				li.news-feed__item
+					article.item-feed
+						.h2.mb-3.item-feed__title
+							a(href!="<%- link%>" target="_blank" data-tippy-content="To original post" data-tippy-placement="right" data-tippy-theme="light-border") <%- title%>
+						.d-flex.align-items-center.mb-4.item-feed__info
+							+svg('calendar').mr-2
+							span(data-date) <%- pubDate%>
+							span.mx-2 •
+							+svg('user').mr-2
+							span <%- author%>
+						.item-feed__content.content-style(data-content)
+						.item-feed__view-more.text-center
+							button.btn.btn--hover-blue.item-feed__btn-more(type="button")
+								span Show more
+								span Show less
+
+			div.text-center.mt-5(elem="show-more")
+				button.btn.btn--blue(elem="btn-more" type="button") More news
+
+			div.text-center(elem="loader")
+				.d-inline-block(elem="loader-img")
+					img(src="img/theme/dino-wants-to-eat.gif", alt="dino-wants-to-eat")
+				p Loading ...

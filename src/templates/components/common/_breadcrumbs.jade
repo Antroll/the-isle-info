@@ -1,0 +1,8 @@
+mixin breadcrumbs(links, current)
+	div(block="breadcrumbs")
+		ul(elem="list")
+			each item in links
+				li(elem="item")
+					a(href="index.html")=item
+			li(elem="item")
+				span=current
