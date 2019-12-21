@@ -323,6 +323,8 @@ span.error { color: #E94C3D; }
 .nav-showed .menu-trigger__icon:after { bottom: 0; -webkit-transform: rotate(90deg); transform: rotate(90deg); }
 
 .footer { background: #232830; padding: 12px 0; color: #fff; font-size: 14px; }
+.footer__github { display: block; fill: #fff; }
+.footer__github > svg { display: block; }
 
 .news-feed__list { list-style: none; }
 .news-feed__item { margin-top: 30px; opacity: 0; -webkit-transform: scale(0.95); transform: scale(0.95); -webkit-transition: all 0.2s; transition: all 0.2s; }
