@@ -1,0 +1,231 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: $color-text;
+	-webkit-box-shadow: 0 0 0px 1000px transparent inset;
+	transition: background-color 5000s ease-in-out 0s;
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%);
+
+	.form-dark &{
+		-webkit-text-fill-color: #fff;
+	}
+}
+
+.form-group {
+	margin-bottom: 14px;
+	@include media-breakpoint-up(md) {
+		margin-bottom: 20px;
+	}
+}
+.form-control {
+	height: 40px;
+	padding: 0 15px;
+	border: solid $color-main-2;
+	border-width: 2px;
+	display: block;
+	border-radius: 15px;
+	box-shadow: none;
+	width: 100%;
+	transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	&:focus{
+		outline: 0;
+		box-shadow: 0 0 0 0.2rem rgba(#fff,.25);
+		// border-color: $color-blue;
+	}
+	@include placeholderStyle {
+		color: #E0E0E0;
+	}
+	&--light{
+		background: #fff;
+		border-color: #fff;
+		&:focus{
+			border-color: #fff;
+		}
+	}
+	&.error{
+		border-color: $color-red;
+		&:focus{
+			box-shadow: 0 0 0 0.2rem rgba($color-red,.25);
+		}
+	}
+}
+
+textarea.form-control {
+	resize: vertical;
+	height: auto;
+	min-height: 95px;
+	max-height: 400px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.select-style {
+	display: block;
+	width: 100%;
+	position: relative;
+	font-size: 1rem;
+	margin: 0;
+	&--inline{
+		display: inline-block;
+		width: auto;
+	}
+	&--no-border{}
+	&:after{
+		content: '';
+		position: absolute;
+		top: 23px;
+		right: 10px;
+
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 6px 5px 0 5px;
+		border-color: $color-text transparent transparent transparent;
+
+
+		pointer-events: none;
+		.IE &{
+			display: none;
+		}
+	}
+	>select {
+		padding: 0 30px 0 15px;
+		border: solid #DDDDDD;
+		border-width: 1px;
+		border-radius: 0px;
+		position: relative;
+		background: none;
+		width: 100%;
+		height: rem(50, 16);
+		outline: none;
+		display: inline-block;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		cursor: pointer;
+
+		transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		&:focus{
+			outline: 0;
+			border-color: $color-blue;
+			box-shadow: 0 0 0 0.2rem rgba($color-blue,.25);
+		}
+		.IE &{
+			padding-right: 0;
+		}
+	}
+	&--no-border{
+		>select {
+			border: none;
+			padding-left: 0;
+		}
+	}
+	&--dimmed{
+		>select {
+			background: $color-dimmed;
+			border-color: $color-dimmed;
+			&:focus{
+				border-color: $color-dimmed;
+			}
+		}
+	}
+}
+
+.submit-result {
+	display: none;
+	&--error{
+		color: $color-red;
+	}
+	&--success{
+		color: $color-green;
+	}
+	&--type-bubble{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		z-index: $zindex-popover;
+		padding: 13px 13px 12px;
+		text-align: center;
+		width: 100%;
+		@include media-breakpoint-up(md) {
+			padding: 40px;
+		}
+		&.submit-result--error{
+			background: lighten($color-red, 40%);
+		}
+		&.submit-result--success{
+			background: lighten($color-green, 40%);
+		}
+	}
+	&__message{
+		&~ p{
+			display: none !important;
+		}
+	}
+	label {
+		margin: 0;
+	}
+}
+
+.row-form{
+	margin-left: -8px;
+	margin-right: -8px;
+	.col, [class*="col-"] {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+}
+
+span.error {
+	color: $color-red;
+}
+
+.file-upload {
+	display: inline-flex;
+	margin: 0;
+	max-width: 100%;
+	&__input{
+	}
+	&__result{
+		position: relative;
+		display: flex;
+		align-items: center;
+		margin-left: 20px;
+
+		width: calc(100% - 20px - 150px - 20px);
+		@include media-breakpoint-up(md) {
+			width: calc(100% - 20px - 195px - 20px);
+		}
+	}
+	&__result-text{
+		@include text-truncate();
+	}
+	&__btn{
+		min-width: 0;
+		flex-shrink: 0;
+		width: 150px;
+		@include media-breakpoint-up(md) {
+			width: 195px;
+		}
+	}
+	&__del{
+		visibility: hidden;
+		opacity: 0;
+		background: none;
+		border: none;
+		color: $color-red;
+		font-size: 1.5rem;
+		font-weight: bolder;
+		&.visible{
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}

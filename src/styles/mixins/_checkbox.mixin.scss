@@ -1,0 +1,44 @@
+@charset "utf-8";
+@mixin checkbox($color: #c6c6c6){
+	$checkColor: $color;
+	display: inline-block;
+	padding: 5px 0;
+	cursor: pointer;
+	input{
+		&:checked{
+			& + span{
+				&:before{
+					content: '✔';
+					color: $checkColor;
+				}
+			}
+		}
+	}
+	span{
+		color: #656565;
+		font-size: 14px;
+		&:before{
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			height: 22px;
+			width: 23px;
+			margin-top: -3px;
+			margin-right: 10px;
+
+			border-radius: 5px;
+			border: 2px solid $checkColor;
+
+			color: transparent;
+			text-align: center;
+			font-size: 15px;
+			line-height: 20px;
+		}
+		&:hover{
+			&:before{
+				content: '✔';
+				color: rgba($checkColor, 0.2);
+			}
+		}
+	}
+}

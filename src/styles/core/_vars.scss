@@ -1,0 +1,87 @@
+$path: '../';
+$path-css: '#{$path}images/css/';
+$path-font: $path+'fonts/';
+
+// ---------------------------- grid
+$screen-xs: 0;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+
+$screen-xs-max: ($screen-sm - 1) !default;
+$screen-sm-max: ($screen-md - 1) !default;
+$screen-md-max: ($screen-lg - 1) !default;
+$screen-lg-max: ($screen-xl - 1) !default;
+
+$grid-breakpoints: (
+  xs: $screen-xs,
+  sm: $screen-sm,
+  md: $screen-md,
+  lg: $screen-lg,
+  xl: $screen-xl
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 687px,
+  lg: 960px,
+  xl: 1192px
+);
+
+$grid-gutter-width: 24px;
+$gw: $grid-gutter-width;
+$gw-05: $grid-gutter-width / 2;
+
+$grid-columns: 12;
+
+// ---------------------------- Z-index master list
+$zindex-dropdown:           1000;
+$zindex-sticky:             1020;
+$zindex-fixed:              1030;
+$zindex-modal-backdrop:     1040;
+$zindex-modal:              1050;
+$zindex-popover:            1060;
+$zindex-tooltip:            1070;
+
+// ---------------------------- colors
+$color-main-1: 					#38414e;
+$color-main-2: 					darken($color-main-1, 4%);
+// $color-blue: 					#12aaeb;
+$color-text: 					#212121;
+$color-lemon: 					#cddc39;
+$color-green: 					#048d73;
+$color-green-l: 				#92d479;
+$color-dimmed:					#F1F1F1;
+
+$color-blue:    				#007bff;
+$color-indigo:  				#6610f2;
+$color-purple:  				#6f42c1;
+$color-pink:    				#e83e8c;
+$color-red:	  					#E94C3D;
+$color-orange:  				#fd7e14;
+$color-yellow:  				#ffc107;
+$color-green:   				#28a745;
+$color-teal:    				#20c997;
+$color-cyan:    				#17a2b8;
+
+// ---------------------------- fonts
+$fw-extralight:		100;
+$fw-thin:			200;
+$fw-light:			300;
+$fw-regular:		400;
+$fw-normal:			$fw-regular;
+$fw-medium:			500;
+$fw-semibold:		600;
+$fw-bold:			700;
+$fw-extrabold:		800;
+$fw-black:			900;
+
+$font-1: 'HelveticaNeueCyr';
+
+// ---------------------------- urls
+$url-magwai-logo: url($path+'img/theme/magwai.png');
+$url-no-img: url($path+'img/theme/no-img.png');
+
+// ---------------------------- others
+$radius: 5px;

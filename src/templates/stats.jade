@@ -1,0 +1,64 @@
+extends _layout
+include components/common/_icons-list.jade
+block title
+	title The Isle - info: stats
+block content
+	- const footnote1 = 'Total time without hatchling stage'
+	section.section(block="stats")
+		.wrap
+			h1.h1.mb-5 Stats
+
+			.content-style
+				div(block="stats-table")
+					table
+						thead
+							tr
+								th Dinosaur Name
+								th Base Damage
+								th Alternate Attack
+								th Health
+								th Mass (kg)
+								th Speed (km/h)
+								th Ambush (km/h)
+								th Sprint Duration (min)
+								th Base Bleed
+								th
+									p(data-tippy-content=footnote1) Growth Time (min)
+										sup.ml-1 ?
+						tbody
+
+							- const growStages = ['hatch', 'juvie', 'sub', 'adult', 'total']
+
+							each dino in locals.dinosaurs
+								tr
+									td #{dino.name}
+									td #{dino.baseDamage}
+									td #{dino.alernateAttack}
+									td #{dino.health}
+									td #{dino.mass}
+									td #{dino.speed}
+									td #{dino.ambush}
+									td #{dino.sprint}
+									td #{dino.bleedDamage}
+									td
+										.d-inline-flex.align-items-center.js-tooltip(elem="grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter")
+											span #{dino.growTime.total}
+											i.ml-2(elem="list-icon")
+												+svg('list').d-block
+
+											.d-none.js-tooltip-content(block="grow-list")
+												ul(elem="list")
+													each time, stage in dino.growTime
+														if (stage !== 'total')
+															li(elem="item")
+																dl.d-flex
+																	dt.mr-2 #{stage}:
+																	dd #{time}
+
+
+			.content-style.mt-5
+				h3 Credits
+				p Data was taken from:
+				ul.my-0
+					li #[a(href="https://docs.google.com/spreadsheets/d/1LNIsS0NXxledmO4sYN8v7dmx5AnHIslJloyhKI9kKv8" target="_blank") Stats Spreadsheet], creator #[a(href="https://www.reddit.com/user/TSND_" target="_blank") TSND]
+					li #[a(href="https://docs.google.com/document/d/1d_oHdkpVDHkXp3B4jyB6J_JxK0bytIWO-qFlqsXkC38" target="_blank") Growth Times doc], creator #[a(href=href) hypno#0828]

@@ -1,0 +1,117 @@
+extends _layout
+block vars
+	-var mapName = 'thenyaw';
+	-var mapSize = {x: 789, y: 781};
+block title
+	title The Isle - info: Thenyaw Island map
+block content
+	-var GDExport = 'https://drive.google.com/uc?export=view&id=';
+	-var latMin = Math.round(mapSize.x / -2 )
+	-var latMax = Math.round(mapSize.x / 2 )
+	-var lngMin = Math.round(mapSize.y / -2 )
+	-var lngMax = Math.round(mapSize.y / 2 )
+
+	section.section
+		.wrap
+			block map-title
+				h1.mb-5.text-center The map
+
+
+			div.mb-5.mb-md-1(block="user-coords")
+				form.js-coords-form(elem="inner" action="")
+					.row.mt-n3
+						.col-md-auto.mt-3.mr-auto.order-2.order-md-0
+							button.btn.btn--green-gradient.w-100.js-ctrl-v(elem="btn" type="button")
+								+svg('map-point').mr-2
+								| Ctrl + V
+						.col-md-auto.mt-3.d-flex.align-items-center
+							label.mr-2.mb-0(elem="label" for="lat") Lat:
+							input#lat.form-control(elem="input" type="number" name="lat" min=latMin max=latMax placeholder="-119" required)
+						.col-md-auto.mt-3.d-flex.align-items-center
+							label.mr-2.mb-0(elem="label" for="lng") Long:
+							input#lng.form-control(elem="input" type="number" name="lng" min=lngMin max=lngMax placeholder="243" required)
+						.col-auto.mt-3.text-right.order-1.order-md-0
+							button.btn.btn--blue(elem="btn" type="submit")
+								+svg('map-point').mr-2
+								| Set the point
+						.col.col-md-auto.mt-3
+							button.btn.btn--link(elem="btn" mod="reset" type="reset")
+								span ×
+								| Clear
+
+
+			div(block="map")
+
+				.js-tooltip(block="map-settings" mod="pos:map" data-tippy-placement="bottom")
+					i(elem="icon" title="Настройки карты")
+						+svg('settings-work-tool')
+
+					form.d-none.js-tooltip-content(elem="content")
+						ul.py-3(elem="list")
+							li.mb-2
+								+switchbox({
+									className: 'mr-2'
+								})(name="hidden-markers")
+									| Hidden markers
+							li(elem="item")
+								+switchbox({
+									className: 'mr-2'
+								})(name="invisible-markers")
+									| Invisible markers
+						//- .mt-4
+							button.btn.btn--blue(type="reset") Сбросить
+
+				span#position(elem="cursor-position")
+
+				picture.responsive-img.d-block(elem="layout" mod=mapName data-map-name=mapName)
+					source(media="(min-width: 1200px)" data-srcset="img/media/map-#{mapName}-big.jpg")
+					img.lazyload(elem="img" data-src="img/media/map-#{mapName}.jpg" alt="map-#{mapName}")
+
+
+				ul(elem="markers")
+					mixin marker(obj)
+						-obj = obj ? obj : {}
+						-obj.marker = obj.marker ? obj.marker : 'map-point'
+						-obj.class = obj.class ? obj.class : ''
+
+						li.js-tooltip(elem="marker" class=obj.class data-lat=obj.lat data-lng=obj.lng style="left: #{obj.posLeft}%; top: #{obj.posTop}%")
+							i(elem="marker-icon" title=obj.title)
+								+svg(obj.marker)
+							.d-none.js-tooltip-content(block="marker-tooltip" )
+								div(elem="title") #{obj.title}
+								.d-flex.mb-2.ml-n2
+									dl.d-flex.ml-2(elem="coords")
+										dt.mr-2 Lat:
+										dd #{obj.lat}
+									dl.d-flex.ml-2(elem="coords")
+										dt.mr-2 Long:
+										dd #{obj.lng}
+								if obj.gallery
+									div.js-gallery(elem="images")
+										each image, i in obj.gallery
+											a.js-gallery-item(elem="img-link" href=image.url data-title="<small>#{obj.title}: lat #{obj.lat}, lng #{obj.lng}</small><p>#{image.title}</p>")
+												if i == 0
+													+svg('gallery-icon').mr-2
+													span view gallery
+
+					block map-markers
+						+marker({
+							title: 'Paradise',
+							lat: '-142.1',
+							lng: '289.2',
+							posLeft: '28.8',
+							posTop: '92.3',
+						})
+
+					li.js-player-marker.d-none(elem="marker" style="left: 50%; top: 50%" data-tippy-content="You, lat: {{ lat }}, lng: {{ lng }}")
+						i(elem="player-icon")
+							+svg('dino-marker')
+
+			p.mt-3
+				em.footnote The marker is set through the search, as well as the coordinates of the cursor is an inaccuracy. But also it will help you to understand the approximate location.
+			p
+				em.footnote Good luck dino bro ^^
+
+			.content-style.mt-5
+				h3 Credits
+				p Big thanks to #[a(href="https://www.deviantart.com/skudde" target="_blank") Skudde] for this cool map. I hope he will continue updating his creation.

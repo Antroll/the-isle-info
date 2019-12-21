@@ -1,0 +1,117 @@
+extends _layout-map
+block vars
+	-var mapName = 'v3';
+	-var mapSize = {x: 1600, y: 1600};
+block title
+	title The Isle - info: Isle V3 map
+block map-title
+	h1.mb-5.text-center Isle V3 map
+
+block map-markers
+	+marker({
+		title: 'Gulf tower',
+		lat: '-360',
+		lng: '45',
+		posLeft: '29.4',
+		posTop: '48.3',
+	})
+
+	+marker({
+		title: 'The Dam',
+		lat: '35',
+		lng: '-160',
+		posLeft: '55.3',
+		posTop: '35.3',
+	})
+
+	+marker({
+		title: 'Aviary',
+		lat: '-25',
+		lng: '280',
+		posLeft: '51.9',
+		posTop: '62.5',
+		gallery: [
+			{
+				title: 'Maya on the roof :)',
+				url: GDExport+'1k068kJziQfyHsKSSwpuHysui8pbsnJaI',
+			}
+		]
+	})
+
+	//- 
+		+marker({
+			title: 'Near mountain pond',
+			lat: '-493.3',
+			lng: '484.9',
+			posLeft: '21.3',
+			posTop: '78.1',
+		})
+
+	//- 
+		+marker({
+			title: 'река в начале болот, после спуска с горы',
+			lat: '155.8',
+			lng: '53.2',
+			posLeft: '64.6',
+			posTop: '49.1',
+		})
+
+	//- 
+		+marker({
+			title: 'Спуск с горы',
+			lat: '126.1',
+			lng: '86.5',
+			posLeft: '64.7',
+			posTop: '49',
+		})
+
+	+marker({
+		title: 'Secret lake',
+		lat: '265',
+		lng: '-345',
+		posLeft: '69.9',
+		posTop: '23.4',
+	})
+
+	+marker({
+		title: 'Nothern river waterfall',
+		lat: '41',
+		lng: '-509',
+		posLeft: '54.9',
+		posTop: '13.6',
+	})
+
+	+marker({
+		title: 'Bog, near waterfalls',
+		lat: '-303',
+		lng: '-266',
+		posLeft: '34.9',
+		posTop: '27.6',
+		gallery: [
+			{
+				title: 'Adult triceratops',
+				url: GDExport+'1cgxon2N5-OKhFUzsrdX4x67wo-fLfVeZ',
+			},{
+				title: 'Triceratops near waterfall',
+				url: GDExport+'1jizpgbkwn-e8ELQlABFFTiAEO0ZnPunf',
+			}
+		]
+	})
+
+	//- 
+		+marker({
+			title: 'some waterfall',
+			lat: '-270',
+			lng: '578',
+			posLeft: '35.2',
+			posTop: '82.1',
+		})
+
+	//- 
+		+marker({
+			title: 'Map center',
+			lat: '0',
+			lng: '0',
+			posLeft: '50',
+			posTop: '50',
+		})

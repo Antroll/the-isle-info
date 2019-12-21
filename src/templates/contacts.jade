@@ -1,0 +1,23 @@
+extends _layout
+block title
+	title The Isle - info: contacts
+block content
+	section.section
+		.wrap
+			h1.h1.mb-4 Contacts
+
+			.content-style
+				p If you have ideas, suggestions or just want to say #[em "Hi"], you can write me by mail
+					code.ml-1
+						a(href="mailto:aliengrey88@gmail.com" target="_blank") aliengrey88@gmail.com
+					| ,
+				p or contact with me in discord app, my user name: 
+					code
+						+svg('discord').mr-1
+						| Antroll#8969.
+				p
+					| I also created a post on 
+					code
+						+svg('reddit').mr-1
+						a(href="https://www.reddit.com/r/theisle/comments/b3ihk0/new_interactive_map/" target="_blank") reddit
+					| .

@@ -1,0 +1,11 @@
+mixin icons-list
+	- const icons = ['calendar','dino-marker','discord','fossil','gallery-icon','list','map-point','reddit','search','settings-work-tool','user']
+
+	.my-5
+		hr.hr
+		.h3 Icons list:
+		.row(style="font-size: 40px; fill: #fff")
+			each icon in icons
+				.col-4.col-md-2.col-lg-1(data-tippy-content=icon data-tippy-placement="top-start")
+					+svg(icon)
+		hr.hr

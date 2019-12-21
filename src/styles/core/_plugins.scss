@@ -1,0 +1,13 @@
+// lazyload
+img:not([src]) {
+    visibility: hidden;
+}
+img[data-src],
+img[data-srcset] {
+  display: block;
+  min-height: 1px;
+}
+.lazyload-error {
+	background: $url-no-img center no-repeat;
+	background-size: cover;
+}

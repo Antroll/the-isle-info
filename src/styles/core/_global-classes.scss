@@ -1,0 +1,102 @@
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+	a{
+		text-decoration: underline;
+		color: #6b75d7;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+}
+
+img[data-object-fit="contain"] { object-fit: contain }
+
+img[data-object-fit="cover"] { object-fit: cover }
+
+img[data-object-fit="scale-down"] { object-fit: scale-down }
+
+img[data-object-fit="none"] { object-fit: none }
+
+.fit-img{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	>img{
+		opacity: 0;
+	}
+}
+
+.svg-icon {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.visuallyhidden {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	height: 1px; width: 1px;
+	margin: -1px; padding: 0; border: 0;
+}
+
+.responsive-img{
+	position: relative;
+	background-position: center;
+	&:before{
+		content: '';
+		display: block;
+		width: 100%;
+		height: 0;
+		padding-bottom: cp(1,1)
+	}
+	>img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&--2x1:before{ padding-bottom: cp(1,2) }
+	&--3x2:before{ padding-bottom: cp(2,3) }
+	&--4x3:before{ padding-bottom: cp(3,4) }
+	&--14x9:before{ padding-bottom: cp(9,14) }
+	&--16x9:before{ padding-bottom: cp(9,16) }
+}
+
+.b-soc {
+	&__inner {
+		margin: -10px -10px 0;
+		display: inline-flex;
+		vertical-align: middle;
+		align-items: center;
+	}
+	&__item {
+		@extend %link-clicker;
+		margin: 10px 10px 0;
+		font-size: 18px;
+		line-height: 1;
+		svg{
+			fill: $blue;
+		}
+	}
+}
+
+.footnote {
+	opacity: 0.5;
+}
+
+.section {
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	@include media-breakpoint-up(md) {
+		padding-top: 75px;
+		padding-bottom: 75px;
+	}
+}

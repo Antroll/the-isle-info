@@ -1,0 +1,10 @@
+include ../components/_checkbox
+include ../components/_svg-icon
+block vars
+	- var innerClass = "";
+	- var href = 'javascript:void(0)';
+
+div(block="modal")
+	span.arcticmodal-close(elem="close") ×
+
+	block modal-content

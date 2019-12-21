@@ -1,0 +1,38 @@
+mixin nav-item(title, url)
+	li(elem="item")&attributes(attributes)
+		a(elem="link" href=(url?url:href))=title
+		if block
+			i(elem="item-icon")
+				+svg('angle-down')
+			ul(elem="sub-menu")
+				block
+
+mixin sub-item(title)
+	li(elem="sub-item")&attributes(attributes)
+		a(elem="sub-link" href=href)=title
+		if block
+			i(elem="item-icon")
+				+svg('angle-down')
+			block
+
+mixin header
+	header(block="header")
+		.wrap
+			.row.align-items-center
+				.col-auto
+					a(elem="logo" href="index.html")
+						+svg('fossil')
+				.col-auto
+					div(elem="title") The Isle - Info
+
+				.col-auto.ml-auto
+					button.d-lg-none(block="menu-trigger" mod="pos:header" type="button")
+						i(elem="icon")
+
+					nav(block="top-nav")
+						div(elem="scroll")
+							ul(elem="list")
+								+nav-item('Map v3', 'map-v-three.html')
+								+nav-item('Map Thenyaw', 'map-thenyaw.html')
+								+nav-item('Stats', 'stats.html')
+								+nav-item('Contacts', 'contacts.html')

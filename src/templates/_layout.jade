@@ -1,0 +1,42 @@
+- var href = 'javascript:void(0)';
+- var img = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+- var DATE = new Date();
+- var time = DATE.getTime();
+block vars
+include components/_index
+doctype html
+html.no-js
+	head
+		include components/layout/_google-analysrics
+		meta(charset='utf-8')
+		block title
+			title dev
+		meta(name='description' content='')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		include components/layout/_favicon
+		meta(name="theme-color" content="#2f3742")
+		link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
+		link(rel="icon" href="favicon.ico" type="image/x-icon")
+		//- styles
+		link(rel="stylesheet", href="styles/vendors.css")
+		link(rel="stylesheet", href="styles/style.css?v4324234")
+		block style
+		block script
+	body
+		// [if lte IE 9]>
+			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+			<![endif]
+		.wrap-site.tingle-content-wrapper(class=wrapClass)
+			block header
+				+header
+			main.main
+				block content
+			block footer
+				+footer
+
+		.visuallyhidden(data-svg-path="img/theme/sprite.symbol.svg?v4324234")
+
+		script(src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign")
+		script(src="scripts/vendors.js?v4324234")
+		script(src="scripts/main.js?v4324234")
+		block scripts
