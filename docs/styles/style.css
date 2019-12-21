@@ -409,6 +409,9 @@ span.error { color: #E94C3D; }
 .stats-table__grow-list:focus { outline: none; }
 .stats-table__list-icon { fill: #fff; opacity: 0.3; -webkit-transition: all 0.1s; transition: all 0.1s; }
 .tippy-active .stats-table__list-icon { opacity: 1; }
+.stats-table__dino-icon { font-size: 28px; flex-shrink: 0; -webkit-transition: all 0.2s; transition: all 0.2s; -webkit-transform-origin: left center; transform-origin: left center; }
+@media (min-width: 768px) { .stats-table__dino-icon { -webkit-transform-origin: center; transform-origin: center; } }
+.stats-table tr:hover .stats-table__dino-icon { -webkit-transform: scale(1.5); transform: scale(1.5); }
 
 .grow-list__list { list-style: none; }
 

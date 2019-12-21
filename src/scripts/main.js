@@ -79,7 +79,6 @@ const APP = {
 
 					feed.items.forEach(function(entry, i) {
 						if (i < 3) {
-							console.log(entry);
 							addItem(entry)
 						}
 					})

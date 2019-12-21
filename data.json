@@ -2,6 +2,7 @@
 	"dinosaurs": [
 		{
 			"name": "Allosaurus",
+			"icon": "allosaurus",
 			"id": 0,
 			"diet": "carnivore",
 			"baseDamage": 300,
@@ -22,6 +23,7 @@
 		},
 		{
 			"name": "Ceratosaurus",
+			"icon": "cerato",
 			"id": 1,
 			"diet": "carnivore",
 			"baseDamage": 350,
@@ -42,6 +44,7 @@
 		},
 		{
 			"name": "Carnotaurus",
+			"icon": "allosaurus",
 			"id": 2,
 			"diet": "carnivore",
 			"baseDamage": 200,
@@ -62,6 +65,7 @@
 		},
 		{
 			"name": "Diabloceratops",
+			"icon": "styracosaurus",
 			"id": 3,
 			"diet": "carnivore",
 			"baseDamage": 350,
@@ -82,6 +86,7 @@
 		},
 		{
 			"name": "Dilophosaurus",
+			"icon": "guanlong",
 			"id": 4,
 			"diet": "carnivore",
 			"baseDamage": 150,
@@ -102,6 +107,7 @@
 		},
 		{
 			"name": "Dryosaurus",
+			"icon": "plateosaurus",
 			"id": 5,
 			"diet": "carnivore",
 			"baseDamage": 20,
@@ -122,6 +128,7 @@
 		},
 		{
 			"name": "Gallimimus",
+			"icon": "gallimimus",
 			"id": 6,
 			"diet": "carnivore",
 			"baseDamage": 150,
@@ -142,6 +149,7 @@
 		},
 		{
 			"name": "Giganotosaurus",
+			"icon": "t-rex",
 			"id": 7,
 			"diet": "carnivore",
 			"baseDamage": 700,
@@ -162,6 +170,7 @@
 		},
 		{
 			"name": "Maiasaura",
+			"icon": "iguanodon",
 			"id": 8,
 			"diet": "carnivore",
 			"baseDamage": 175,
@@ -182,6 +191,7 @@
 		},
 		{
 			"name": "Pachycephalosaurus ",
+			"icon": "plateosaurus",
 			"id": 9,
 			"diet": "carnivore",
 			"baseDamage": 350,
@@ -202,6 +212,7 @@
 		},
 		{
 			"name": "Parasaurolophus",
+			"icon": "parasaurolophus",
 			"id": 10,
 			"diet": "carnivore",
 			"baseDamage": 250,
@@ -222,6 +233,7 @@
 		},
 		{
 			"name": "Suchomimus ",
+			"icon": "ouranosaurus",
 			"id": 11,
 			"diet": "carnivore",
 			"baseDamage": 350,
@@ -242,6 +254,7 @@
 		},
 		{
 			"name": "Triceratops",
+			"icon": "triceratops",
 			"id": 12,
 			"diet": "carnivore",
 			"baseDamage": 360,
@@ -262,6 +275,7 @@
 		},
 		{
 			"name": "Tyrannosaurus",
+			"icon": "t-rex",
 			"id": 13,
 			"diet": "carnivore",
 			"baseDamage": 1200,
@@ -282,6 +296,7 @@
 		},
 		{
 			"name": "Utahraptor",
+			"icon": "velociraptor",
 			"id": 14,
 			"diet": "carnivore",
 			"baseDamage": 200,
