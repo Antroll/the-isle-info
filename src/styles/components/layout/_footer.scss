@@ -4,4 +4,13 @@
 	color: #fff;
 	font-size: 14px;
 	&__created{}
+
+	&__github {
+		display: block;
+		fill: #fff;
+
+		> svg {
+			display: block;
+		}
+	}
 }
