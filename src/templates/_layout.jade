@@ -29,7 +29,8 @@ html.no-js
 		.wrap-site.tingle-content-wrapper(class=wrapClass)
 			block header
 				+header
-			main.main
+			main(block="main")
+				div.lazyload(elem="bg" data-bg="url(img/media/bg-1.jpg)")
 				block content
 			block footer
 				+footer
