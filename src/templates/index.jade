@@ -30,6 +30,8 @@ block content
 				button.btn.btn--blue(elem="btn-more" type="button") More news
 
 			div.text-center(elem="loader")
-				.d-inline-block(elem="loader-img")
-					img(src="img/theme/dino-wants-to-eat.gif", alt="dino-wants-to-eat")
+				div.d-inline-block(elem="loader-img-wrap")
+					div(elem="loader-img")
+						img(src="img/theme/dino-wants-to-eat.gif", alt="dino-wants-to-eat")
+					div(elem="loader-overlay")
 				p Loading ...

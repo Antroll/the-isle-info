@@ -14,8 +14,32 @@
 }
 .main{
 	position: relative;
+	z-index: 0;
 	flex: 1 0 auto;
+
+	&__bg {
+		z-index: -1;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+
+		&:after {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			background-color: rgba($color-main-1, 0.9);
+		}
+	}
 }
+
 // .Футер книзу
 %wrap-style {
 	width: 100%;

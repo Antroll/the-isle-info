@@ -2,7 +2,9 @@
   "name": "The-isle-info",
   "license": "MIT",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "svg4everybody": "^2.1.9"
+  },
   "scripts": {
     "start": "gulp",
     "build": "gulp build"
