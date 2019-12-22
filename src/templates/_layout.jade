@@ -26,11 +26,11 @@ html.no-js
 		// [if lte IE 9]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 			<![endif]
-		.wrap-site.tingle-content-wrapper(class=wrapClass)
+		.tingle-content-wrapper(block="wrap-site" class=wrapClass)
+			div.lazyload(elem="bg" data-bg="url(img/media/bg-1.jpg)")
 			block header
 				+header
 			main(block="main")
-				div.lazyload(elem="bg" data-bg="url(img/media/bg-1.jpg)")
 				block content
 			block footer
 				+footer
