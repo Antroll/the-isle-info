@@ -39,7 +39,7 @@
 					<div class="col-auto">
 						<a class="header__logo" href="index.html">
 							<svg class="svg-icon">
-								<use xlink:href="#si-fossil" />
+								<use xlink:href="img/theme/sprite.symbol.svg#si-fossil" />
 							</svg>
 						</a>
 					</div>
@@ -68,19 +68,23 @@
 			</div>
 		</header>
 		<main class="main">
+			<div class="lazyload main__bg" data-bg="url(img/media/bg-1.jpg)"></div>
 			<section class="section news-feed">
 				<div class="wrap news-feed__inner">
 					<h1 class="h1 mb-5 news-feed__title">The Isle announcements</h1>
 					<ul class="news-feed__list" id="feed-list"></ul>
 					<script id="feed-item" type="text/template">
-						<li class="news-feed__item"><article class="item-feed"><div class="h2 mb-3 item-feed__title"><a href="<%- link%>" target="_blank" data-tippy-content="To original post" data-tippy-placement="right" data-tippy-theme="light-border"><%- title%></a></div><div class="d-flex align-items-center mb-4 item-feed__info"><svg class="svg-icon mr-2"><use xlink:href="#si-calendar"></use></svg><span data-date><%- pubDate%></span><span class="mx-2">•</span><svg class="svg-icon mr-2"><use xlink:href="#si-user"></use></svg><span><%- author%></span></div><div data-content class="item-feed__content content-style"></div><div class="item-feed__view-more text-center"><button type="button" class="btn btn--hover-blue item-feed__btn-more"><span>Show more</span><span>Show less</span></button></div></article></li>
+						<li class="news-feed__item"><article class="item-feed"><div class="h2 mb-3 item-feed__title"><a href="<%- link%>" target="_blank" data-tippy-content="To original post" data-tippy-placement="right" data-tippy-theme="light-border"><%- title%></a></div><div class="d-flex align-items-center mb-4 item-feed__info"><svg class="svg-icon mr-2"><use xlink:href="img/theme/sprite.symbol.svg#si-calendar"></use></svg><span data-date><%- pubDate%></span><span class="mx-2">•</span><svg class="svg-icon mr-2"><use xlink:href="img/theme/sprite.symbol.svg#si-user"></use></svg><span><%- author%></span></div><div data-content class="item-feed__content content-style"></div><div class="item-feed__view-more text-center"><button type="button" class="btn btn--hover-blue item-feed__btn-more"><span>Show more</span><span>Show less</span></button></div></article></li>
 					</script>
 					<div class="text-center mt-5 news-feed__show-more">
 						<button class="btn btn--blue news-feed__btn-more" type="button">More news</button>
 					</div>
 					<div class="text-center news-feed__loader">
-						<div class="d-inline-block news-feed__loader-img">
-							<img src="img/theme/dino-wants-to-eat.gif" alt="dino-wants-to-eat">
+						<div class="d-inline-block news-feed__loader-img-wrap">
+							<div class="news-feed__loader-img">
+								<img src="img/theme/dino-wants-to-eat.gif" alt="dino-wants-to-eat">
+							</div>
+							<div class="news-feed__loader-overlay"></div>
 						</div>
 						<p>Loading ...</p>
 					</div>
@@ -94,11 +98,11 @@
 						<div class="footer__copyright">© 2019 MIT License</div>
 					</div>
 					<div class="col-md-auto ml-md-auto">
-						<div class="d-flex align-items-center footer__created">Made by - <span class="flex-shrink-0" data-tippy-content="&lt;a href='mailto:aliengrey88@gmail.com' target='_blank'&gt;aliengrey88@gmail.com&lt;/a&gt;" data-tippy-interactive="true">Antroll</span>
-							<a class="ml-3 flex-shrink-0 footer__github" href="https://github.com/Antroll/the-isle-info"
-							target="_blank" data-tippy-content="Repository on Github">
+						<div class="d-flex align-items-center footer__created">Made by -<span class="flex-shrink-0 ml-1" data-tippy-content="&lt;a href='mailto:aliengrey88@gmail.com' target='_blank'&gt;aliengrey88@gmail.com&lt;/a&gt;" data-tippy-interactive="true">Antroll</span>
+							<a class="ml-3 flex-shrink-0 footer__github"
+							href="https://github.com/Antroll/the-isle-info" target="_blank" data-tippy-content="Repository on Github">
 								<svg class="svg-icon">
-									<use xlink:href="#si-github" />
+									<use xlink:href="img/theme/sprite.symbol.svg#si-github" />
 								</svg>
 							</a>
 						</div>
@@ -107,7 +111,6 @@
 			</div>
 		</footer>
 	</div>
-	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?v4324234"></div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign"></script>
 	<script src="scripts/vendors.js?v4324234"></script>
 	<script src="scripts/main.js?v4324234"></script>
