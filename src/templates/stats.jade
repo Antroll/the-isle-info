@@ -6,6 +6,7 @@ block content
 	- const footnote1 = 'Total time without hatchling stage'
 	section.section(block="stats")
 		.wrap
+			//- +icons-list
 			h1.h1.mb-5 Stats
 
 			.content-style
@@ -31,7 +32,10 @@ block content
 
 							each dino in locals.dinosaurs
 								tr
-									td #{dino.name}
+									td
+										.d-flex.align-items-center
+											+svg(dino.icon).mr-2(elem="dino-icon")
+											| #{dino.name}
 									td #{dino.baseDamage}
 									td #{dino.alernateAttack}
 									td #{dino.health}
@@ -58,7 +62,9 @@ block content
 
 			.content-style.mt-5
 				h3 Credits
-				p Data was taken from:
-				ul.my-0
+				p.mb-0 Data was taken from:
+				ul.mt-0
 					li #[a(href="https://docs.google.com/spreadsheets/d/1LNIsS0NXxledmO4sYN8v7dmx5AnHIslJloyhKI9kKv8" target="_blank") Stats Spreadsheet], creator #[a(href="https://www.reddit.com/user/TSND_" target="_blank") TSND]
 					li #[a(href="https://docs.google.com/document/d/1d_oHdkpVDHkXp3B4jyB6J_JxK0bytIWO-qFlqsXkC38" target="_blank") Growth Times doc], creator #[a(href=href) hypno#0828]
+				p Icons made by #[a(href="https://www.flaticon.com/authors/freepik" target="_blank") Freepik] from #[a(href="https://www.flaticon.com" target="_blank") flaticon.com]
+

@@ -1,4 +1,6 @@
 .stats-table {
+	background-color: rgba($color-main-1, 0.7);
+
 	tr {
 		&:hover{
 			td {
@@ -24,6 +26,21 @@
 
 		.tippy-active &{
 			opacity: 1;
+		}
+	}
+
+	&__dino-icon {
+		font-size: 28px;
+		flex-shrink: 0;
+		transition: all 0.2s;
+		transform-origin: left center;
+
+		@include media-breakpoint-up(md) {
+			transform-origin: center;
+		}
+
+		.stats-table tr:hover & {
+			transform: scale(1.5);
 		}
 	}
 }

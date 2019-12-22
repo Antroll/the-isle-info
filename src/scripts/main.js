@@ -1,9 +1,8 @@
 const APP = {
 	cache: {},
 	initBefore: function() {
+		svg4everybody();
 		APP.polyfills()
-		// APP.getClipboardText()
-		APP.svgIcons()
 		document.documentElement.className =
 			document.documentElement.className.replace("no-js", "js");
 	},
@@ -79,7 +78,6 @@ const APP = {
 
 					feed.items.forEach(function(entry, i) {
 						if (i < 3) {
-							console.log(entry);
 							addItem(entry)
 						}
 					})
@@ -795,17 +793,6 @@ const APP = {
 				}
 			};
 		}
-	},
-
-	svgIcons: function () {
-		const container = document.querySelector('[data-svg-path]')
-		const path = container.getAttribute('data-svg-path')
-		const xhr = new XMLHttpRequest()
-		xhr.onload = function() {
-			container.innerHTML = this.responseText
-		}
-		xhr.open('get', path, true)
-		xhr.send()
 	},
 
 	polyfills: function () {

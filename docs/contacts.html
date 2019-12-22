@@ -39,7 +39,7 @@
 					<div class="col-auto">
 						<a class="header__logo" href="index.html">
 							<svg class="svg-icon">
-								<use xlink:href="#si-fossil" />
+								<use xlink:href="img/theme/sprite.symbol.svg#si-fossil" />
 							</svg>
 						</a>
 					</div>
@@ -68,14 +68,15 @@
 			</div>
 		</header>
 		<main class="main">
+			<div class="lazyload main__bg" data-bg="url(img/media/bg-1.jpg)"></div>
 			<section class="section">
 				<div class="wrap">
 					<h1 class="h1 mb-4">Contacts</h1>
 					<div class="content-style">
 						<p>If you have ideas, suggestions or just want to say <em>"Hi"</em>, you can write me by mail<code class="ml-1"><a href="mailto:aliengrey88@gmail.com" target="_blank">aliengrey88@gmail.com</a></code>,</p>
-						<p>or contact with me in discord app, my user name: <code><svg class="svg-icon mr-1"><use xlink:href="#si-discord"/></svg>Antroll#8969.</code>
+						<p>or contact with me in discord app, my user name: <code><svg class="svg-icon mr-1"><use xlink:href="img/theme/sprite.symbol.svg#si-discord"/></svg>Antroll#8969.</code>
 						</p>
-						<p>I also created a post on <code><svg class="svg-icon mr-1"><use xlink:href="#si-reddit"/></svg><a href="https://www.reddit.com/r/theisle/comments/b3ihk0/new_interactive_map/" target="_blank">reddit</a></code>.</p>
+						<p>I also created a post on <code><svg class="svg-icon mr-1"><use xlink:href="img/theme/sprite.symbol.svg#si-reddit"/></svg><a href="https://www.reddit.com/r/theisle/comments/b3ihk0/new_interactive_map/" target="_blank">reddit</a></code>.</p>
 					</div>
 				</div>
 			</section>
@@ -87,14 +88,19 @@
 						<div class="footer__copyright">© 2019 MIT License</div>
 					</div>
 					<div class="col-md-auto ml-md-auto">
-						<div class="footer__created">Made by - <span data-tippy-content="&lt;a href='mailto:aliengrey88@gmail.com' target='_blank'&gt;aliengrey88@gmail.com&lt;/a&gt;" data-tippy-interactive="true">Antroll</span>
+						<div class="d-flex align-items-center footer__created">Made by -<span class="flex-shrink-0 ml-1" data-tippy-content="&lt;a href='mailto:aliengrey88@gmail.com' target='_blank'&gt;aliengrey88@gmail.com&lt;/a&gt;" data-tippy-interactive="true">Antroll</span>
+							<a class="ml-3 flex-shrink-0 footer__github"
+							href="https://github.com/Antroll/the-isle-info" target="_blank" data-tippy-content="Repository on Github">
+								<svg class="svg-icon">
+									<use xlink:href="img/theme/sprite.symbol.svg#si-github" />
+								</svg>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
 	</div>
-	<div class="visuallyhidden" data-svg-path="img/theme/sprite.symbol.svg?v4324234"></div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign"></script>
 	<script src="scripts/vendors.js?v4324234"></script>
 	<script src="scripts/main.js?v4324234"></script>
