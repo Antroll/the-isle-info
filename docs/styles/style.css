@@ -119,12 +119,12 @@ img[data-src], img[data-srcset] { display: block; min-height: 1px; }
 .btn--small { min-width: 0; height: 2.25em; line-height: 2.06em; }
 .btn--narrow { min-width: 0; }
 .btn--hollow-white, .btn--hollow { background: none; }
-.btn--hollow-white:hover, .btn--hollow:hover { background: #006fe6; color: #fff; border-color: rgba(0, 0, 0, 0); }
-.btn--hollow-white:active, .btn--hollow:active { background: #007bff; color: #fff; border-color: rgba(0, 0, 0, 0); }
+.btn--hollow-white:hover, .btn--hollow:hover { background: #006fe6; color: #fff; border-color: transparent; }
+.btn--hollow-white:active, .btn--hollow:active { background: #007bff; color: #fff; border-color: transparent; }
 .btn--hollow-white svg, .btn--hollow svg { fill: #fff; }
 .btn--hollow { border-color: #DDDDDD; }
 .btn--hollow svg { fill: #212121; }
-.btn--link, .btn--link:hover, .btn--link:active { background: none; border-color: rgba(0, 0, 0, 0); color: inherit; }
+.btn--link, .btn--link:hover, .btn--link:active { background: none; border-color: transparent; color: inherit; }
 .btn--hollow-white { color: #fff; border-color: #fff; }
 .btn--blue { background: #007bff; color: #fff; }
 .btn--blue svg { fill: #fff; }
@@ -407,8 +407,12 @@ span.error { color: #E94C3D; }
 .marker-tooltip__img-link svg { font-size: 32px; }
 .marker-tooltip__img-link:nth-child(n+2) { display: none; }
 
-.stats-table { background-color: rgba(56, 65, 78, 0.7); }
+.stats-table { background-color: rgba(56, 65, 78, 0.7); margin-left: -12px; margin-right: -12px; }
+@media (min-width: 1200px) { .stats-table { margin: 0; } }
 .stats-table tr:hover td { background-color: #293039; }
+.stats-table table th:first-child, .stats-table table td:first-child { padding-left: 12px; }
+.stats-table table th:last-child, .stats-table table td:last-child { padding-right: 12px; }
+@media (min-width: 1200px) { .stats-table table th:last-child, .stats-table table td:last-child { padding-right: 0; } }
 .stats-table__grow-list { cursor: help; }
 .stats-table__grow-list:focus { outline: none; }
 .stats-table__list-icon { fill: #fff; opacity: 0.3; -webkit-transition: all 0.1s; transition: all 0.1s; }
