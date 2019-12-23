@@ -1,5 +1,11 @@
 .stats-table {
 	background-color: rgba($color-main-1, 0.7);
+	margin-left: $gw / -2;
+	margin-right: $gw / -2;
+
+	@include media-breakpoint-up(xl) {
+		margin: 0;
+	}
 
 	tr {
 		&:hover{
@@ -9,10 +15,24 @@
 		}
 	}
 
+	table {
+		th, td {
+			&:first-child {
+				padding-left: $gw / 2;
+			}
+
+			&:last-child {
+				padding-right: $gw / 2;
+				@include media-breakpoint-up(xl) {
+					padding-right: 0;
+				}
+			}
+		}
+	}
+
+
 	&__grow-list{
 		cursor: help;
-
-		&.tippy-active {}
 
 		&:focus{
 			outline: none;

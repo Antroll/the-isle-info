@@ -15,6 +15,7 @@ block content
 						thead
 							tr
 								th Dinosaur Name
+								th Diet
 								th Base Damage
 								th Alternate Attack
 								th Health
@@ -36,6 +37,9 @@ block content
 										.d-flex.align-items-center
 											+svg(dino.icon).mr-2(elem="dino-icon")
 											| #{dino.name}
+									td.text-center
+										i.d-inline-block(data-tippy-content=dino.diet)
+											+svg((dino.diet === 'carnivore' ? 'meat' : 'leaf'))
 									td #{dino.baseDamage}
 									td #{dino.alernateAttack}
 									td #{dino.health}

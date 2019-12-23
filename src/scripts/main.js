@@ -307,6 +307,7 @@ const APP = {
 	tooltipsInit: function () {
 		tippy('[data-tippy-content]', {
 			animation: 'fade',
+			theme: 'light-border',
 			arrow: true,
 			arrowType: 'round',
 		})
