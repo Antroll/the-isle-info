@@ -22,6 +22,8 @@ const APP = {
 		APP.mouseOverMap();
 		APP.ctrlVInit();
 		APP.rssParser();
+		APP.tableSort();
+		APP.tableVerticalHighlight();
 
 		APP.modalGallery();
 
@@ -744,6 +746,64 @@ const APP = {
 		}
 
 		init();
+	},
+
+	tableSort: function () {
+		const tables = [...document.querySelectorAll('.js-table-sort')]
+		for (let i = 0; i < tables.length; i++) {
+			const table = tables[i]
+			const options = {
+				descending: true
+			}
+			new Tablesort(table, options);
+		}
+	},
+
+	tableVerticalHighlight: function () {
+		const selectors = {
+			TABLE: '.js-vertical-highlight',
+		}
+
+		const state = {
+			TD_HIGHLIGHTED: 'is-highlighted',
+		}
+
+		const highlightCols = function () {
+			const table = this.closest('table')
+			const rows = [...table.querySelectorAll('tr')]
+			const rowCols = [...this.parentElement.querySelectorAll('td')]
+			const index = rowCols.indexOf( this );
+
+			for (var i = 0; i < rows.length; i++) {
+				const row = rows[i]
+				const cols = [...row.querySelectorAll('td'), ...row.querySelectorAll('th')]
+				if (!cols.length) {
+					continue;
+				}
+				cols[index].classList.add(state.TD_HIGHLIGHTED)
+			}
+		}
+
+		const unhighlightCols = function () {
+			const table = this.closest('table')
+			const cols = [...table.querySelectorAll('td'), ...table.querySelectorAll('th')]
+			for (var i = 0; i < cols.length; i++) {
+				const col = cols[i]
+				col.classList.remove(state.TD_HIGHLIGHTED)
+			}
+		}
+
+		const tables = [...document.querySelectorAll(selectors.TABLE)]
+		for (var i = 0; i < tables.length; i++) {
+			const table = tables[i]
+			const cols = [...table.querySelectorAll('td')]
+
+			for (var i = 0; i < cols.length; i++) {
+				const col = cols[i]
+				col.onmouseover = highlightCols
+				col.onmouseout = unhighlightCols
+			}
+		}
 	},
 
 	lazyload: function() {
