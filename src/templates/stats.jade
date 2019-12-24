@@ -11,7 +11,7 @@ block content
 
 			.content-style
 				div(block="stats-table")
-					table
+					table.js-vertical-highlight.js-table-sort
 						thead
 							tr
 								th Dinosaur Name
@@ -32,22 +32,28 @@ block content
 							- const growStages = ['hatch', 'juvie', 'sub', 'adult', 'total']
 
 							each dino in locals.dinosaurs
+								-const dietIcon = dino.diet === 'carnivore' ? 'meat' : 'leaf'
+								-const dietSortValue = dino.diet === 'carnivore' ? 1 : 0
+								-const alternateSortValue = dino.alternateAttack === 'n/a' ? 0 : null
+								-const ambushSortValue = dino.ambush === 'n/a' ? 0 : null
+								-const bleedSortValue = dino.bleedDamage === 'n/a' ? 0 : null
+
 								tr
 									td
 										.d-flex.align-items-center
 											+svg(dino.icon).mr-2(elem="dino-icon")
 											| #{dino.name}
-									td.text-center
+									td.text-center(data-sort=dietSortValue)
 										i.d-inline-block(data-tippy-content=dino.diet)
-											+svg((dino.diet === 'carnivore' ? 'meat' : 'leaf'))
+											+svg(dietIcon)
 									td #{dino.baseDamage}
-									td #{dino.alernateAttack}
+									td(data-sort=alternateSortValue) #{dino.alternateAttack}
 									td #{dino.health}
 									td #{dino.mass}
 									td #{dino.speed}
-									td #{dino.ambush}
+									td(data-sort=ambushSortValue) #{dino.ambush}
 									td #{dino.sprint}
-									td #{dino.bleedDamage}
+									td(data-sort=bleedSortValue) #{dino.bleedDamage}
 									td
 										.d-inline-flex.align-items-center.js-tooltip(elem="grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter")
 											span #{dino.growTime.total}
