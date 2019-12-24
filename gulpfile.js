@@ -13,6 +13,8 @@ const DEST = 'docs'
 var config = {
 	jsConcat: [
 		'node_modules/svg4everybody/dist/svg4everybody.min.js',
+		'node_modules/tablesort/dist/tablesort.min.js',
+		'node_modules/tablesort/dist/sorts/tablesort.number.min.js',
 		`./${SRC}/vendors/lazyload.min.js`,
 		`./${SRC}/vendors/tooltip/popper.min.js`,
 		`./${SRC}/vendors/tooltip/tippy.all.min.js`,

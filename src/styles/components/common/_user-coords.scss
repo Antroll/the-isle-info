@@ -1,0 +1,67 @@
+
+.user-coords {
+	padding: 20px;
+	border-radius: 15px;
+	background-color: $color-main-2;
+	@include media-breakpoint-up(md) {
+		height: 80px;
+	}
+
+	&__inner{
+		&.headroom {
+			padding: 0.1px 0;
+		}
+		&.headroom--not-top {
+			@include media-breakpoint-up(md) {
+				position: fixed;
+				z-index: $zindex-fixed;
+				top: 0;
+				left: 12px;
+				right: 12px;
+				max-width: 1176px;
+				margin: 0 auto;
+				width: calc(100% - 24px);
+
+				padding: 10px 20px;
+				background-color: $color-main-2;
+				// border-radius: 15px;
+			}
+		}
+	}
+
+	&__input{
+		text-align: center;
+		width: 100%;
+		@include media-breakpoint-up(md) {
+			width: 100px;
+		}
+		@include media-breakpoint-up(lg) {
+			width: 120px;
+		}
+	}
+	&__btn{
+		min-width: 0;
+		padding: 0 10px;
+		@include media-breakpoint-up(lg) {
+			min-width: 180px;
+		}
+		&--reset{
+			color: $color-red;
+			padding: 0;
+			min-width: 0;
+			&:hover{
+				color: $color-red;
+			}
+
+			span {
+				font-size: 24px;
+				display: block;
+				line-height: 1;
+				font-family: sans-serif;
+				margin-right: 5px;
+				position: relative;
+				top: 0.07em;
+			}
+		}
+	}
+}

@@ -30,8 +30,12 @@
 @import "components/layout/menu-trigger";
 @import "components/layout/footer";
 
-@import "pages/index";
-@import "pages/map";
-@import "pages/stats";
+@import "components/common/stats-table";
+@import "components/common/news-feed";
+@import "components/common/item-feed";
+@import "components/common/map-settings";
+@import "components/common/map";
+@import "components/common/user-coords";
+@import "components/common/marker-tooltip";
 
 @import "core/animations";

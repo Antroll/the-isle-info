@@ -1,0 +1,64 @@
+.map-settings {
+	cursor: pointer;
+	user-select: none;
+	background-color: $color-main-2;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&--pos-map{
+		position: absolute;
+		z-index: 1;
+		right: 0;
+		width: 40px;
+		height: 40px;
+		border-radius: 15px 15px 0 0;
+		top: -40px;
+
+
+		@include media-breakpoint-up(md) {
+			top: -6px;
+			border-radius: 0 0 15px 15px;
+			left: 50%;
+			margin-left: -20px;
+			right: auto;
+		}
+
+	}
+
+	&:focus{
+		outline: none;
+	}
+
+	&__icon{
+		fill: $color-blue;
+		transition: all 0.2s;
+		.tippy-active &{
+			transform: rotate(45deg);
+		}
+
+		svg {
+			display: block;
+			width: 1.5em;
+			height: 1.5em;
+		}
+
+		&:focus{
+			outline: none;
+		}
+	}
+
+	&__content{
+		text-align: left;
+	}
+
+	&__list{
+		list-style: none;
+	}
+	&__item{
+		& + & {
+			margin-top: 10px;
+		}
+	}
+}
