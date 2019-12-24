@@ -1,0 +1,129 @@
+
+.map {
+	position: relative;
+	z-index: 1;
+	border: 10px solid $color-main-2;
+	border-radius: 15px;
+	margin: 0 -22px;
+	@include media-breakpoint-up(md) {
+		margin: 0;
+	}
+
+	&__layout{
+		&--thenyaw{
+			&:before{
+				padding-bottom: cp(864, 945);
+			}
+		}
+	}
+
+	&__img{
+		display: block;
+		max-width: 100%;
+	}
+
+	&__markers{
+		list-style: none;
+	}
+	&__marker{
+		position: absolute;
+		font-size: 22px;
+		cursor: pointer;
+
+		@include media-breakpoint-up(md) {
+			font-size: 40px;
+		}
+
+		&:hover {
+			z-index: 1;
+		}
+
+		&:focus{
+			outline: none;
+		}
+	}
+	&__player-icon,
+	&__marker-icon{
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		width: 1em;
+		height: 1em;
+		margin-left: -0.5em;
+		transition: all 0.2s ease;
+
+		&:focus{
+			outline: none;
+		}
+	}
+	&__player-icon{}
+	&__marker-icon{
+
+		svg{
+			display: block;
+			transition: all 0.2s;
+			fill: $color-lemon;
+		}
+
+		&:hover{
+
+			svg {
+				transform: scale(0.8);
+				transform-origin: bottom center;
+				fill: darken($color-red, 5%);
+			}
+		}
+
+		.tippy-active &{
+			transform: scale(0);
+		}
+
+		.map--hide-markers &{
+			visibility: hidden;
+			opacity: 0;
+		}
+		.map--invisible-markers &{
+			opacity: 0.2;
+			&:hover{
+				// opacity: 1;
+			}
+		}
+	}
+
+	&__cursor-position{
+		position: absolute;
+		z-index: $zindex-popover;
+		margin-top: 10px;
+		padding: 0 5px;
+		border-radius: 15px;
+		background-color: rgba(#fff, 0.8);
+		color: $color-text;
+		white-space: nowrap;
+		font-size: 12px;
+		text-align: center;
+		min-width: 115px;
+		margin-left: -58px;
+
+		@include media-breakpoint-up(xl) {
+			transform: none;
+			margin-left: 10px;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			margin-left: -5px;
+
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 5px 6px 5px;
+			border-color: transparent transparent rgba(#fff, 0.8) transparent;
+			@include media-breakpoint-up(xl) {
+				display: none;
+			}
+
+		}
+	}
+}
