@@ -2,6 +2,7 @@
 	"dinosaurs": [
 		{
 			"name": "Allosaurus",
+			"gameMod": "survival",
 			"icon": "allosaurus",
 			"id": 0,
 			"diet": "carnivore",
@@ -23,6 +24,7 @@
 		},
 		{
 			"name": "Ceratosaurus",
+			"gameMod": "survival",
 			"icon": "cerato",
 			"id": 1,
 			"diet": "carnivore",
@@ -44,6 +46,7 @@
 		},
 		{
 			"name": "Carnotaurus",
+			"gameMod": "survival",
 			"icon": "allosaurus",
 			"id": 2,
 			"diet": "carnivore",
@@ -65,6 +68,7 @@
 		},
 		{
 			"name": "Diabloceratops",
+			"gameMod": "survival",
 			"icon": "styracosaurus",
 			"id": 3,
 			"diet": "herbivore",
@@ -86,6 +90,7 @@
 		},
 		{
 			"name": "Dilophosaurus",
+			"gameMod": "survival",
 			"icon": "guanlong",
 			"id": 4,
 			"diet": "carnivore",
@@ -107,6 +112,7 @@
 		},
 		{
 			"name": "Dryosaurus",
+			"gameMod": "survival",
 			"icon": "plateosaurus",
 			"id": 5,
 			"diet": "herbivore",
@@ -128,6 +134,7 @@
 		},
 		{
 			"name": "Gallimimus",
+			"gameMod": "survival",
 			"icon": "gallimimus",
 			"id": 6,
 			"diet": "herbivore",
@@ -149,6 +156,7 @@
 		},
 		{
 			"name": "Giganotosaurus",
+			"gameMod": "survival",
 			"icon": "t-rex",
 			"id": 7,
 			"diet": "carnivore",
@@ -170,6 +178,7 @@
 		},
 		{
 			"name": "Maiasaura",
+			"gameMod": "survival",
 			"icon": "iguanodon",
 			"id": 8,
 			"diet": "herbivore",
@@ -191,6 +200,7 @@
 		},
 		{
 			"name": "Pachycephalosaurus ",
+			"gameMod": "survival",
 			"icon": "plateosaurus",
 			"id": 9,
 			"diet": "herbivore",
@@ -212,6 +222,7 @@
 		},
 		{
 			"name": "Parasaurolophus",
+			"gameMod": "survival",
 			"icon": "parasaurolophus",
 			"id": 10,
 			"diet": "herbivore",
@@ -233,6 +244,7 @@
 		},
 		{
 			"name": "Suchomimus ",
+			"gameMod": "survival",
 			"icon": "ouranosaurus",
 			"id": 11,
 			"diet": "carnivore",
@@ -254,6 +266,7 @@
 		},
 		{
 			"name": "Triceratops",
+			"gameMod": "survival",
 			"icon": "triceratops",
 			"id": 12,
 			"diet": "herbivore",
@@ -264,7 +277,7 @@
 			"speed": 25.34,
 			"ambush": "n/a",
 			"sprint": "1:06",
-			"bleedDamage": "20 | 25",
+			"bleedDamage": "20/25",
 			"growTime": {
 				"hatch": 30,
 				"juvie": 60,
@@ -275,6 +288,7 @@
 		},
 		{
 			"name": "Tyrannosaurus",
+			"gameMod": "survival",
 			"icon": "t-rex",
 			"id": 13,
 			"diet": "carnivore",
@@ -296,6 +310,7 @@
 		},
 		{
 			"name": "Utahraptor",
+			"gameMod": "survival",
 			"icon": "velociraptor",
 			"id": 14,
 			"diet": "carnivore",
@@ -313,6 +328,282 @@
 				"sub": 0,
 				"adult": 50,
 				"total": 100
+			}
+		},
+		{
+			"name": "Acrocanthosaurus",
+			"gameMod": "progression",
+			"icon": "t-rex",
+			"id": 15,
+			"diet": "carnivore",
+			"baseDamage": 250,
+			"alternateAttack": "n/a",
+			"health": 4790,
+			"mass": 4790,
+			"speed": 42.6,
+			"ambush": 52.2,
+			"sprint": "0:27",
+			"bleedDamage": 25,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 120,
+				"sub": 0,
+				"adult": 120,
+				"total": 240
+			}
+		},
+		{
+			"name": "Albertosaurus",
+			"gameMod": "progression",
+			"icon": "allosaurus",
+			"id": 16,
+			"diet": "carnivore",
+			"baseDamage": 424,
+			"alternateAttack": "n/a",
+			"health": 3000,
+			"mass": 3000,
+			"speed": 33.8,
+			"ambush": 42.1,
+			"sprint": "no data",
+			"bleedDamage": "no data",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 0,
+				"sub": 0,
+				"adult": 120,
+				"total": 120
+			}
+		},
+		{
+			"name": "Ankylosaurus",
+			"gameMod": "progression",
+			"icon": "ankylosaurus",
+			"id": 17,
+			"diet": "herbivore",
+			"baseDamage": 1260,
+			"alternateAttack": "n/a",
+			"health": 5443,
+			"mass": 5443,
+			"speed": 19.3,
+			"ambush": "n/a",
+			"sprint": "2:00",
+			"bleedDamage": "n/a",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 120,
+				"sub": 0,
+				"adult": 120,
+				"total": 240
+			}
+		},
+		{
+			"name": "Austroraptor",
+			"gameMod": "progression",
+			"icon": "velociraptor",
+			"id": 18,
+			"diet": "carnivore",
+			"baseDamage": 60,
+			"alternateAttack": "n/a",
+			"health": 250,
+			"mass": 250,
+			"speed": 39.6,
+			"ambush": 51.5,
+			"sprint": "1:00",
+			"bleedDamage": 2,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 60,
+				"sub": 0,
+				"adult": 60,
+				"total": 120
+			}
+		},
+		{
+			"name": "Baryonyx",
+			"gameMod": "progression",
+			"icon": "velociraptor",
+			"id": 19,
+			"diet": "carnivore",
+			"baseDamage": 150,
+			"alternateAttack": "n/a",
+			"health": 1450,
+			"mass": 1450,
+			"speed": 41.3,
+			"ambush": 49.6,
+			"sprint": "2:35",
+			"bleedDamage": 15,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 90,
+				"sub": 0,
+				"adult": 90,
+				"total": 180
+			}
+		},
+		{
+			"name": "Camarasaurus",
+			"gameMod": "progression",
+			"icon": "camarasaur",
+			"id": 20,
+			"diet": "herbivore",
+			"baseDamage": 750,
+			"alternateAttack": 5150,
+			"health": 12000,
+			"mass": 12000,
+			"speed": 20.7,
+			"ambush": "n/a",
+			"sprint": "1:10",
+			"bleedDamage": "n/a",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 0,
+				"sub": 0,
+				"adult": 0,
+				"total": 0
+			}
+		},
+		{
+			"name": "Herrerasaurus",
+			"gameMod": "progression",
+			"icon": "velociraptor",
+			"id": 21,
+			"diet": "carnivore",
+			"baseDamage": 50,
+			"alternateAttack": "n/a",
+			"health": 500,
+			"mass": 500,
+			"speed": 55.8,
+			"ambush": "n/a",
+			"sprint": "2:10",
+			"bleedDamage": 10,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 20,
+				"sub": 0,
+				"adult": 60,
+				"total": 80
+			}
+		},
+		{
+			"name": "Puertasaurus",
+			"gameMod": "progression",
+			"icon": "puertasaurus",
+			"id": 22,
+			"diet": "herbivore",
+			"baseDamage": 5000,
+			"alternateAttack": "n/a",
+			"health": 49895,
+			"mass": 49895,
+			"speed": "no data",
+			"ambush": "n/a",
+			"sprint": "no data",
+			"bleedDamage": "n/a",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 0,
+				"sub": 0,
+				"adult": 0,
+				"total": 0
+			}
+		},
+		{
+			"name": "Shantungosaurus",
+			"gameMod": "progression",
+			"icon": "iguanodon",
+			"id": 23,
+			"diet": "herbivore",
+			"baseDamage": 250,
+			"alternateAttack": 1100,
+			"health": 11793,
+			"mass": 11793,
+			"speed": 32.5,
+			"ambush": "n/a",
+			"sprint": "0:46",
+			"bleedDamage": "n/a",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 120,
+				"sub": 0,
+				"adult": 240,
+				"total": 360
+			}
+		},
+		{
+			"name": "Spinosaurus",
+			"gameMod": "progression",
+			"icon": "spinosaurus",
+			"id": 24,
+			"diet": "carnivore",
+			"baseDamage": 250,
+			"alternateAttack": "n/a",
+			"health": 9071,
+			"mass": 9071,
+			"speed": 23.3,
+			"ambush": 34.4,
+			"sprint": "0:30",
+			"bleedDamage": 18,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 180,
+				"sub": 0,
+				"adult": 180,
+				"total": 360
+			}
+		},
+		{
+			"name": "Stegosaurus",
+			"gameMod": "progression",
+			"icon": "stegosaurus",
+			"id": 25,
+			"diet": "herbivore",
+			"baseDamage": 1200,
+			"alternateAttack": "n/a",
+			"health": 4883,
+			"mass": 4883,
+			"speed": 26.3,
+			"ambush": "n/a",
+			"sprint": "1:30",
+			"bleedDamage": 30,
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 120,
+				"sub": 0,
+				"adult": 120,
+				"total": 240
+			}
+		},
+		{
+			"name": "Therizinosaurus",
+			"gameMod": "progression",
+			"icon": "",
+			"id": 26,
+			"diet": "herbivore",
+			"baseDamage": 350,
+			"alternateAttack": 700,
+			"health": 4536,
+			"mass": 4536,
+			"speed": 38.2,
+			"ambush": "n/a",
+			"sprint": "1:05",
+			"bleedDamage": "n/a",
+			"growTime":
+			{
+				"hatch": 0,
+				"juvie": 180,
+				"sub": 0,
+				"adult": 120,
+				"total": 300
 			}
 		}
 	]

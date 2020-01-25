@@ -226,9 +226,9 @@ span.error { color: #E94C3D; }
 
 .ui-switch { position: relative; display: -webkit-inline-box; display: inline-flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; padding: 5px 0 5px 50px; margin: 0; cursor: pointer; min-height: 22px; box-sizing: content-box; text-align: left; }
 .ui-switch__icon { display: block; position: absolute; top: 5px; left: 0; height: 22px; width: 50px; border-radius: 15px; background-color: #E0E0E0; cursor: pointer; -webkit-transition: all 0.2s ease-out; transition: all 0.2s ease-out; }
-.ui-switch__icon:before { content: ''; display: block; position: absolute; top: -1px; left: 0; height: 24px; width: 24px; border-radius: 50%; background-color: #2f3742; border: 3px solid #2f3742; -webkit-transition: all 0.2s ease-out; transition: all 0.2s ease-out; -webkit-transform: scale(0.9); transform: scale(0.9); }
+.ui-switch__icon:before { content: ''; display: block; position: absolute; top: -1px; left: -1px; height: 24px; width: 24px; border-radius: 50%; background-color: #2f3742; border: 2px solid #E0E0E0; -webkit-transition: all 0.2s ease-out; transition: all 0.2s ease-out; -webkit-transform: scale(0.9); transform: scale(0.9); }
 .ui-switch__input:checked ~ .ui-switch__icon { background-color: #007bff; }
-.ui-switch__input:checked ~ .ui-switch__icon:before { -webkit-transform: translateX(26px); transform: translateX(26px); }
+.ui-switch__input:checked ~ .ui-switch__icon:before { -webkit-transform: translateX(28px); transform: translateX(28px); border-color: #2f3742; }
 .ui-switch__text { margin-left: 0.8em; display: inline-block; }
 
 .tingle-modal { background-color: rgba(56, 65, 78, 0.8); -webkit-user-select: auto; -moz-user-select: auto; -ms-user-select: auto; user-select: auto; }
