@@ -141,20 +141,20 @@
 			display: block;
 			position: absolute;
 			top: -1px;
-			left: 0;
+			left: -1px;
 			height: 24px;
 			width: 24px;
 			border-radius: 50%;
 			background-color: $color-main-2;
-			border: 3px solid $color-main-2;
+			border: 2px solid #E0E0E0;
 			transition: all 0.2s ease-out;
 			transform: scale(0.9);
-			// box-shadow: 0 0 2px #fff;
 		}
 		.ui-switch__input:checked ~ &{
 			background-color: $color-blue;
 			&:before{
-				transform: translateX(26px);
+				transform: translateX(28px);
+				border-color: $color-main-2;
 			}
 		}
 	}
