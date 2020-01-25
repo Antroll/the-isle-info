@@ -1,20 +1,33 @@
 extends _layout
 include components/common/_icons-list.jade
 block title
-	title The Isle - info: stats
+	title The Isle - info: dinosaurs stats
 block content
 	- const footnote1 = 'Total time without hatchling stage'
 	section.section(block="stats")
 		.wrap
 			//- +icons-list
-			h1.h1.mb-5 Stats
+			h1.h1.mb-5 Dinosaurs stats
+
+			.mb-2 Game mod:
+			.row.mb-3
+				.col-auto
+					+switchbox({
+						className: null
+					})(name="progression").js-game-mod-switcher
+						| Progression
+				.col-auto
+					+switchbox({
+						className: null
+					})(name="survival" checked).js-game-mod-switcher
+						| Survival
 
 			.content-style
 				div(block="stats-table")
 					table.js-vertical-highlight.js-table-sort
 						thead
 							tr
-								th Dinosaur Name
+								th(data-sort-default) Dinosaur Name
 								th Diet
 								th Base Damage
 								th Alternate Attack
@@ -36,9 +49,12 @@ block content
 								-const dietSortValue = dino.diet === 'carnivore' ? 1 : 0
 								-const alternateSortValue = dino.alternateAttack === 'n/a' ? 0 : null
 								-const ambushSortValue = dino.ambush === 'n/a' ? 0 : null
-								-const bleedSortValue = dino.bleedDamage === 'n/a' ? 0 : null
+								-const bleedSortValue = dino.bleedDamage === 'n/a' || dino.bleedDamage === 'no data' ? 0 : null
+								-const speedSortValue = dino.speed === 'n/a' || dino.speed === 'no data' ? 0 : null
+								-const sprintSortValue = dino.sprint === 'n/a' || dino.sprint === 'no data' ? 0 : null
+								-const rowClass = dino.gameMod === 'progression' ? 'd-none' : null
 
-								tr
+								tr(class=rowClass data-game-mod=dino.gameMod)
 									td
 										.d-flex.align-items-center
 											+svg(dino.icon).mr-2(elem="dino-icon")
@@ -50,9 +66,9 @@ block content
 									td(data-sort=alternateSortValue) #{dino.alternateAttack}
 									td #{dino.health}
 									td #{dino.mass}
-									td #{dino.speed}
+									td(data-sort=speedSortValue) #{dino.speed}
 									td(data-sort=ambushSortValue) #{dino.ambush}
-									td #{dino.sprint}
+									td(data-sort=sprintSortValue) #{dino.sprint}
 									td(data-sort=bleedSortValue) #{dino.bleedDamage}
 									td
 										.d-inline-flex.align-items-center.js-tooltip(elem="grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter")
