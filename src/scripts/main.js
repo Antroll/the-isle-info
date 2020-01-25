@@ -74,7 +74,13 @@ const APP = {
 
 				if (err) {
 					const loader = document.querySelector('.news-feed__loader')
-					loader.innerHTML = err
+					loader.innerHTML = `
+						<div>Sorry, RSS does not want to work 😥</div>
+						<div class="mb-3">${err}</div>
+						<div>
+							<a class="btn btn--blue" href="https://steamcommunity.com/app/376210/allnews/" target="_blank">Official news source</a>
+						</div>
+					`
 				} else {
 					APP.cache.feedItems = feed.items
 
