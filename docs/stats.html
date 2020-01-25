@@ -12,7 +12,7 @@
 		gtag('config', 'UA-136534835-1');
 	</script>
 	<meta charset="utf-8">
-	<title>The Isle - info: stats</title>
+	<title>The Isle - info: dinosaurs stats</title>
 	<meta name="description" content>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png?v=qABE66X3wp">
@@ -26,7 +26,7 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="styles/vendors.css">
-	<link rel="stylesheet" href="styles/style.css?v4324234">
+	<link rel="stylesheet" href="styles/style.css?23123131">
 </head>
 
 <body>
@@ -71,13 +71,26 @@
 		<main class="main">
 			<section class="section stats">
 				<div class="wrap">
-					<h1 class="h1 mb-5">Stats</h1>
+					<h1 class="h1 mb-5">Dinosaurs stats</h1>
+					<div class="mb-2">Game mod:</div>
+					<div class="row mb-3">
+						<div class="col-auto">
+							<label class="ui-switch">
+								<input class="visuallyhidden js-game-mod-switcher ui-switch__input" type="checkbox" name="progression"><i class="ui-switch__icon"></i><span class="ui-switch__text">Progression</span>
+							</label>
+						</div>
+						<div class="col-auto">
+							<label class="ui-switch">
+								<input class="visuallyhidden js-game-mod-switcher ui-switch__input" type="checkbox" name="survival" checked="checked"><i class="ui-switch__icon"></i><span class="ui-switch__text">Survival</span>
+							</label>
+						</div>
+					</div>
 					<div class="content-style">
 						<div class="stats-table">
 							<table class="js-vertical-highlight js-table-sort">
 								<thead>
 									<tr>
-										<th>Dinosaur Name</th>
+										<th data-sort-default>Dinosaur Name</th>
 										<th>Diet</th>
 										<th>Base Damage</th>
 										<th>Alternate Attack</th>
@@ -94,7 +107,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -140,7 +153,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -186,7 +199,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -232,7 +245,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -278,7 +291,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -324,7 +337,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -370,7 +383,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -416,7 +429,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -462,7 +475,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -508,7 +521,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -554,7 +567,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -600,7 +613,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -646,7 +659,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -662,7 +675,7 @@
 										<td>25.34</td>
 										<td data-sort="0">n/a</td>
 										<td>1:06</td>
-										<td>20 | 25</td>
+										<td>20/25</td>
 										<td>
 											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>360</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
 												<div class="d-none js-tooltip-content grow-list">
@@ -692,7 +705,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -738,7 +751,7 @@
 											</div>
 										</td>
 									</tr>
-									<tr>
+									<tr data-game-mod="survival">
 										<td>
 											<div class="d-flex align-items-center">
 												<svg class="svg-icon mr-2 stats-table__dino-icon">
@@ -784,6 +797,558 @@
 											</div>
 										</td>
 									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-t-rex" />
+												</svg>Acrocanthosaurus</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>250</td>
+										<td data-sort="0">n/a</td>
+										<td>4790</td>
+										<td>4790</td>
+										<td>42.6</td>
+										<td>52.2</td>
+										<td>0:27</td>
+										<td>25</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>240</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-allosaurus" />
+												</svg>Albertosaurus</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>424</td>
+										<td data-sort="0">n/a</td>
+										<td>3000</td>
+										<td>3000</td>
+										<td>33.8</td>
+										<td>42.1</td>
+										<td data-sort="0">no data</td>
+										<td data-sort="0">no data</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>120</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-ankylosaurus" />
+												</svg>Ankylosaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>1260</td>
+										<td data-sort="0">n/a</td>
+										<td>5443</td>
+										<td>5443</td>
+										<td>19.3</td>
+										<td data-sort="0">n/a</td>
+										<td>2:00</td>
+										<td data-sort="0">n/a</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>240</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-velociraptor" />
+												</svg>Austroraptor</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>60</td>
+										<td data-sort="0">n/a</td>
+										<td>250</td>
+										<td>250</td>
+										<td>39.6</td>
+										<td>51.5</td>
+										<td>1:00</td>
+										<td>2</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>120</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>60</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>60</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-velociraptor" />
+												</svg>Baryonyx</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>150</td>
+										<td data-sort="0">n/a</td>
+										<td>1450</td>
+										<td>1450</td>
+										<td>41.3</td>
+										<td>49.6</td>
+										<td>2:35</td>
+										<td>15</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>180</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>90</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>90</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-camarasaur" />
+												</svg>Camarasaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>750</td>
+										<td>5150</td>
+										<td>12000</td>
+										<td>12000</td>
+										<td>20.7</td>
+										<td data-sort="0">n/a</td>
+										<td>1:10</td>
+										<td data-sort="0">n/a</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>0</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-velociraptor" />
+												</svg>Herrerasaurus</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>50</td>
+										<td data-sort="0">n/a</td>
+										<td>500</td>
+										<td>500</td>
+										<td>55.8</td>
+										<td>61.3</td>
+										<td>2:10</td>
+										<td>10</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>80</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>20</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>60</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-puertasaurus" />
+												</svg>Puertasaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>5000</td>
+										<td data-sort="0">n/a</td>
+										<td>49895</td>
+										<td>49895</td>
+										<td data-sort="0">no data</td>
+										<td data-sort="0">n/a</td>
+										<td data-sort="0">no data</td>
+										<td data-sort="0">n/a</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>0</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-iguanodon" />
+												</svg>Shantungosaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>250</td>
+										<td>1100</td>
+										<td>11793</td>
+										<td>11793</td>
+										<td>32.5</td>
+										<td data-sort="0">n/a</td>
+										<td>0:46</td>
+										<td data-sort="0">n/a</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>360</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>240</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-spinosaurus" />
+												</svg>Spinosaurus</div>
+										</td>
+										<td class="text-center" data-sort="1"><i class="d-inline-block" data-tippy-content="carnivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-meat"/></svg></i>
+										</td>
+										<td>250</td>
+										<td data-sort="0">n/a</td>
+										<td>9071</td>
+										<td>9071</td>
+										<td>34.4</td>
+										<td>41.3</td>
+										<td>0:30</td>
+										<td>18</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>360</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>180</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>180</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-stegosaurus" />
+												</svg>Stegosaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>1200</td>
+										<td data-sort="0">n/a</td>
+										<td>4883</td>
+										<td>4883</td>
+										<td>26.3</td>
+										<td data-sort="0">n/a</td>
+										<td>1:30</td>
+										<td>30</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>240</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr class="d-none" data-game-mod="progression">
+										<td>
+											<div class="d-flex align-items-center">
+												<svg class="svg-icon mr-2 stats-table__dino-icon">
+													<use xlink:href="img/theme/sprite.symbol.svg#si-" />
+												</svg>Therizinosaurus</div>
+										</td>
+										<td class="text-center" data-sort="0"><i class="d-inline-block" data-tippy-content="herbivore"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-leaf"/></svg></i>
+										</td>
+										<td>350</td>
+										<td>700</td>
+										<td>4536</td>
+										<td>4536</td>
+										<td>38.2</td>
+										<td data-sort="0">n/a</td>
+										<td>1:05</td>
+										<td data-sort="0">n/a</td>
+										<td>
+											<div class="d-inline-flex align-items-center js-tooltip stats-table__grow-list" data-tippy-placement="right-start" data-tippy-trigger="mouseenter"><span>300</span><i class="ml-2 stats-table__list-icon"><svg class="svg-icon d-block"><use xlink:href="img/theme/sprite.symbol.svg#si-list"/></svg></i>
+												<div class="d-none js-tooltip-content grow-list">
+													<ul class="grow-list__list">
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">hatch:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">juvie:</dt>
+																<dd>180</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">sub:</dt>
+																<dd>0</dd>
+															</dl>
+														</li>
+														<li class="grow-list__item">
+															<dl class="d-flex"><dt class="mr-2">adult:</dt>
+																<dd>120</dd>
+															</dl>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
@@ -807,7 +1372,7 @@
 			<div class="wrap">
 				<div class="row text-center">
 					<div class="col-md-auto mr-md-auto">
-						<div class="footer__copyright">© 2019 MIT License</div>
+						<div class="footer__copyright">© 2020 MIT License</div>
 					</div>
 					<div class="col-md-auto ml-md-auto">
 						<div class="d-inline-flex align-items-center footer__created">Made by -<a class="flex-shrink-0 ml-1" href="https://github.com/Antroll" target="_blank">Antroll</a>
@@ -823,8 +1388,8 @@
 		</footer>
 	</div>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CArray.from"></script>
-	<script src="scripts/vendors.js?v4324234"></script>
-	<script src="scripts/main.js?v4324234"></script>
+	<script src="scripts/vendors.js?23123131"></script>
+	<script src="scripts/main.js?23123131"></script>
 </body>
 
 </html>

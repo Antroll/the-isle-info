@@ -23,6 +23,7 @@ const APP = {
 		APP.ctrlVInit();
 		APP.rssParser();
 		APP.tableSort();
+		APP.gameModSwitcher();
 		APP.tableVerticalHighlight();
 
 		APP.modalGallery();
@@ -74,7 +75,13 @@ const APP = {
 
 				if (err) {
 					const loader = document.querySelector('.news-feed__loader')
-					loader.innerHTML = err
+					loader.innerHTML = `
+						<div>Sorry, RSS does not want to work 😥</div>
+						<div class="mb-3">${err}</div>
+						<div>
+							<a class="btn btn--blue" href="https://steamcommunity.com/app/376210/allnews/" target="_blank">Official news source</a>
+						</div>
+					`
 				} else {
 					APP.cache.feedItems = feed.items
 
@@ -236,13 +243,19 @@ const APP = {
 			}
 		}
 		const checkPermission = function (cb) {
-			navigator.permissions.query({name: "clipboard-read"}).then(result => {
-				if (result.state == "granted" || result.state == "prompt") {
-					cb()
-				} else {
-					onOpenNoPermissions()
-				}
-			});
+			navigator.permissions.query({name: "clipboard-read"})
+				.then(
+					result => {
+						if (result.state == "granted" || result.state == "prompt") {
+							cb()
+						} else {
+							onOpenNoPermissions()
+						}
+					},
+					error => {
+						onOpenNoPermissions()
+					}
+				);
 		}
 
 		ctrlV.addEventListener('click', function (e) {
@@ -748,12 +761,50 @@ const APP = {
 		init();
 	},
 
+	gameModSwitcher: function () {
+		const selectors = {
+			SWITCHER: '.js-game-mod-switcher',
+			ROWS: '.stats-table tr[data-game-mod]',
+		}
+
+		const states = {
+			SWITCHER_DISABLED: 'd-none',
+		}
+
+		const switcherOnChange = e => {
+			const { target } = e
+			const switcherState = {
+				name: target.getAttribute('name'),
+				active: target.checked
+			}
+
+			const rows = document.querySelectorAll(selectors.ROWS)
+			for (let i = 0; i < rows.length; i++) {
+				const row = rows[i]
+				if (row.dataset.gameMod !== switcherState.name) {
+					continue
+				}
+
+				if (switcherState.active) {
+					row.classList.remove(states.SWITCHER_DISABLED)
+				} else {
+					row.classList.add(states.SWITCHER_DISABLED)
+				}
+			}
+		}
+
+		const switchers = [...document.querySelectorAll(selectors.SWITCHER)]
+		switchers.forEach(switcher => {
+			switcher.addEventListener('change', switcherOnChange)
+		})
+	},
+
 	tableSort: function () {
 		const tables = [...document.querySelectorAll('.js-table-sort')]
 		for (let i = 0; i < tables.length; i++) {
 			const table = tables[i]
 			const options = {
-				descending: true
+				// descending: true
 			}
 			new Tablesort(table, options);
 		}
