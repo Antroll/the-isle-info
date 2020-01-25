@@ -242,13 +242,19 @@ const APP = {
 			}
 		}
 		const checkPermission = function (cb) {
-			navigator.permissions.query({name: "clipboard-read"}).then(result => {
-				if (result.state == "granted" || result.state == "prompt") {
-					cb()
-				} else {
-					onOpenNoPermissions()
-				}
-			});
+			navigator.permissions.query({name: "clipboard-read"})
+				.then(
+					result => {
+						if (result.state == "granted" || result.state == "prompt") {
+							cb()
+						} else {
+							onOpenNoPermissions()
+						}
+					},
+					error => {
+						onOpenNoPermissions()
+					}
+				);
 		}
 
 		ctrlV.addEventListener('click', function (e) {
