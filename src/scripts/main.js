@@ -97,9 +97,21 @@ const APP = {
 		}
 
 		const addItem = (data) => {
+			const itemData = {
+				creator: data.creator || '',
+				title: data.title || '',
+				link: data.link || '',
+				pubDate: data.pubDate || '',
+				author: data.author || '',
+				content: data.content || '',
+				contentSnippet: data.contentSnippet || '',
+				guid: data.guid || '',
+				isoDate: data.isoDate || '',
+			}
+
 			const formatedDate = formatDate(data.isoDate);
 			const tmpl = document.getElementById('feed-item').innerHTML
-			const html = _.template(tmpl)(data);
+			const html = _.template(tmpl)(itemData);
 			const container = document.getElementById('feed-list')
 			const itemElem = APP.createElementFromHTML(html)
 
