@@ -14,3 +14,18 @@
 		}
 	}
 }
+
+.donate-btn {
+	&:hover {
+		color: inherit;
+	}
+
+	&__icon {
+		fill: #fff;
+
+		.donate-btn:hover &{
+			animation: beatHeart 1s infinite;
+			fill: $color-red;
+		}
+	}
+}

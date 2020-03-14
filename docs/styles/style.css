@@ -328,6 +328,10 @@ span.error { color: #E94C3D; }
 .footer__github { display: block; fill: #fff; }
 .footer__github > svg { display: block; }
 
+.donate-btn:hover { color: inherit; }
+.donate-btn__icon { fill: #fff; }
+.donate-btn:hover .donate-btn__icon { animation: beatHeart 1s infinite; fill: #E94C3D; }
+
 .stats-table { background-color: rgba(56, 65, 78, 0.7); margin-left: -12px; margin-right: -12px; }
 @media (min-width: 1200px) { .stats-table { margin: 0; } }
 .stats-table .is-highlighted, .stats-table tr:hover td { background-color: #2f3742; }
@@ -429,6 +433,12 @@ span.error { color: #E94C3D; }
 .marker-tooltip__title { font-size: 18px; font-weight: 500; }
 .marker-tooltip__img-link svg { font-size: 32px; }
 .marker-tooltip__img-link:nth-child(n+2) { display: none; }
+
+@keyframes beatHeart { 0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); } }
 
 
 
