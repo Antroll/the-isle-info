@@ -23,10 +23,10 @@ html.no-js
 		block style
 		block script
 	body
-		// [if lte IE 9]>
-			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-			<![endif]
 		.tingle-content-wrapper(block="wrap-site" class=wrapClass)
+			.browserupgrade
+				| You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.
+
 			div.lazyload(elem="bg" data-bg="url(img/media/bg-1.jpg)")
 			block header
 				+header
