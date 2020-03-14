@@ -52,16 +52,33 @@
 		margin-left: -0.5em;
 		transition: all 0.2s ease;
 
+		svg {
+			display: block;
+			transition: .2s;
+		}
+
 		&:focus{
 			outline: none;
 		}
 	}
-	&__player-icon{}
-	&__marker-icon{
+	&__player-icon{
+		border-radius: 50%;
+		background-color: rgba(#fff, 0.3);
+		margin-bottom: -0.5em;
+		animation: bouncingPoint 1.5s linear infinite;
 
+		&:hover {
+			box-shadow: 0 0 0 2px $color-red;
+			animation: none;
+
+			svg {
+				transform: scale(0.2);
+			}
+		}
+	}
+
+	&__marker-icon{
 		svg{
-			display: block;
-			transition: all 0.2s;
 			fill: $color-lemon;
 		}
 
