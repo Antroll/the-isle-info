@@ -69,9 +69,10 @@ h3, .h3 { font-size: 1.13em; letter-spacing: 0.04em; font-weight: 600; }
 .b-soc__item, .btn { cursor: pointer; }
 .b-soc__item:active, .btn:active { transform: translateY(1px); }
 
-.browserupgrade { margin: 0.2em 0; background: #ccc; color: #000; padding: 0.2em 0; }
+.browserupgrade { display: none; position: relative; z-index: 99999; margin: 0.2em 0; background: #ccc; color: #000; padding: 0.2em 0; text-align: center; }
 .browserupgrade a { text-decoration: underline; color: #6b75d7; }
 .browserupgrade a:hover { text-decoration: none; }
+.IE .browserupgrade { display: block; }
 
 img[data-object-fit="contain"] { -o-object-fit: contain; object-fit: contain; }
 
@@ -130,6 +131,10 @@ img[data-src], img[data-srcset] { display: block; min-height: 1px; }
 .btn--blue svg { fill: #fff; }
 .btn--blue:hover { background: #006fe6; color: #fff; }
 .btn--blue:active { background: #007bff; color: #fff; }
+.btn--green { background: #28a745; color: #fff; }
+.btn--green svg { fill: #fff; }
+.btn--green:hover { background: #23923d; color: #fff; }
+.btn--green:active { background: #28a745; color: #fff; }
 .btn--green-gradient { border: none; background: linear-gradient(90deg, #28a745, #92d479); color: #fff; }
 .btn--green-gradient svg { fill: #fff; }
 .btn--green-gradient:hover { background: linear-gradient(90deg, #28a745, #92d479); color: #fff; }
@@ -328,6 +333,10 @@ span.error { color: #E94C3D; }
 .footer__github { display: block; fill: #fff; }
 .footer__github > svg { display: block; }
 
+.donate-btn:hover { color: inherit; }
+.donate-btn__icon { fill: #fff; }
+.donate-btn:hover .donate-btn__icon { animation: beatHeart 1s infinite; fill: #E94C3D; }
+
 .stats-table { background-color: rgba(56, 65, 78, 0.7); margin-left: -12px; margin-right: -12px; }
 @media (min-width: 1200px) { .stats-table { margin: 0; } }
 .stats-table .is-highlighted, .stats-table tr:hover td { background-color: #2f3742; }
@@ -401,8 +410,12 @@ span.error { color: #E94C3D; }
 .map__marker:hover { z-index: 1; }
 .map__marker:focus { outline: none; }
 .map__player-icon, .map__marker-icon { position: absolute; bottom: 100%; left: 50%; width: 1em; height: 1em; margin-left: -0.5em; transition: all 0.2s ease; }
+.map__player-icon svg, .map__marker-icon svg { display: block; transition: .2s; }
 .map__player-icon:focus, .map__marker-icon:focus { outline: none; }
-.map__marker-icon svg { display: block; transition: all 0.2s; fill: #cddc39; }
+.map__player-icon { border-radius: 50%; background-color: rgba(255, 255, 255, 0.3); margin-bottom: -0.5em; animation: bouncingPoint 1.5s linear infinite; }
+.map__player-icon:hover { box-shadow: 0 0 0 2px #E94C3D; animation: none; }
+.map__player-icon:hover svg { transform: scale(0.2); }
+.map__marker-icon svg { fill: #cddc39; }
 .map__marker-icon:hover svg { transform: scale(0.8); transform-origin: bottom center; fill: #e63726; }
 .tippy-active .map__marker-icon { transform: scale(0); }
 .map--hide-markers .map__marker-icon { visibility: hidden; opacity: 0; }
@@ -429,6 +442,21 @@ span.error { color: #E94C3D; }
 .marker-tooltip__title { font-size: 18px; font-weight: 500; }
 .marker-tooltip__img-link svg { font-size: 32px; }
 .marker-tooltip__img-link:nth-child(n+2) { display: none; }
+
+@keyframes beatHeart { 0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  40% { transform: scale(1); }
+  60% { transform: scale(1.1); }
+  100% { transform: scale(1); } }
+@keyframes bouncingPoint { from,
+  20%,
+  53%,
+  80%,
+  to { animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); transform: translate3d(0, 0, 0); }
+  40%,
+  43% { animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06); transform: translate3d(0, -5px, 0); }
+  70% { animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06); transform: translate3d(0, -3px, 0); }
+  90% { transform: translate3d(0, -1px, 0); } }
 
 
 

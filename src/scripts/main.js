@@ -15,9 +15,10 @@ const APP = {
 		APP.modalCloseBtn()
 		APP.closeOnFocusLost();
 
-		APP.setCurrentPosition();
-		APP.mapOptions();
-		APP.setFixedCoordsForm();
+		APP.initCoordsForm();
+		APP.setMapMarkerFromUrl();
+		APP.initMapOptions();
+		APP.initFixedCoordsForm();
 		APP.tooltipsInit();
 		APP.mouseOverMap();
 		APP.ctrlVInit();
@@ -356,7 +357,7 @@ const APP = {
 			document.querySelectorAll('.js-tooltip'), initTippy);
 	},
 
-	mapOptions: function () {
+	initMapOptions: function () {
 		const form = document.querySelector('.map-settings form')
 		const map = document.querySelector('.map')
 		const state = {
@@ -461,61 +462,157 @@ const APP = {
 		}
 	},
 
-	setCurrentPosition: function () {
-		const form = document.querySelector('.js-coords-form')
-		if (!form) { return }
-
-		const mapName = document.querySelector('[data-map-name]').getAttribute('data-map-name')
-
-		const updateTooltip = function (elem, lat, lng) {
-			const title = elem.getAttribute('data-tippy-content')
-			let newTitle = title.replace('{{ lat }}', lat)
-			newTitle = newTitle.replace('{{ lng }}', lng)
-			elem._tippy.setContent(newTitle)
+	initCoordsForm: function () {
+		const selectors = {
+			FORM: '.js-coords-form',
+			INPUT_LAT: '#lat',
+			INPUT_LNG: '#lng',
+			MAP: '[data-map-name]',
+			PLAYER_MARKER: '.js-player-marker',
+			BTN_SUBMIT: '.js-coords-submit',
+			BTN_SHARE: '.js-coords-share',
 		}
+
+		const selectorsState = {
+			DISABLED: 'd-none'
+		}
+
+		const that = this
+		const { copyCurrentUrl } = that
+
+		const form = document.querySelector(selectors.FORM)
+		const latInput = document.querySelector(selectors.INPUT_LAT)
+		const lngInput = document.querySelector(selectors.INPUT_LNG)
+		const playerMarker = document.querySelector(selectors.PLAYER_MARKER)
+		const shareBtn = document.querySelector(selectors.BTN_SHARE)
+
+		let notificationTimeout
+
+		if (!form || !latInput || !lngInput) {
+			return
+		}
+
+		const init = () => {
+			form.addEventListener('submit', onFormSubmit)
+			form.addEventListener("reset", onFormReset)
+			latInput.addEventListener("change", onCoordInputChange)
+			lngInput.addEventListener("change", onCoordInputChange)
+			shareBtn.addEventListener("click", onShareClick)
+
+			tippy(shareBtn, {
+				content: '🛎️ Point URL copied to clipboard.',
+				theme: 'light-border',
+				placement: 'bottom',
+				trigger: 'click',
+				onShown(myTooltip) {
+					clearTimeout(notificationTimeout)
+					notificationTimeout = setTimeout(() => {
+						myTooltip.hide()
+					}, 2000)
+				}
+			});
+		}
+
+		const { mapName } = document.querySelector(selectors.MAP).dataset
 
 		const onFormSubmit = e => {
 			e.preventDefault();
-			const playerMarker = document.querySelector('.js-player-marker')
-			const lat = form.querySelector('input[name="lat"]').value * 1
-			const lng = form.querySelector('input[name="lng"]').value * 1
-			const pos = APP.loc2pos(lat, lng, mapName)
+			const lat = +latInput.value
+			const lng = +lngInput.value
+			const pos = that.loc2pos(lat, lng, mapName)
 			const outOfMap = pos.left > 100 || pos.top > 100 || pos.top < 0 || pos.left < 0
 
-			playerMarker.classList.add('d-none')
 
 			if (outOfMap) {
-				APP.customAlert(`
+				const alertContent = `
 					<div class="h2 mb-0 text-center">
 						<p>Unfortunately, it is not possible to set a point as it is outside the map.</p>
 					</div>
-				`)
-				console.log(pos);
+				`;
+				that.customAlert(alertContent)
+				playerMarker.classList.add(selectorsState.DISABLED)
+				console.warn(pos);
 			} else {
+				// update get params
+				history.replaceState('', '', `?lat=${lat}&lng=${lng}`);
+
 				var scroll = new SmoothScroll();
-				playerMarker.classList.remove('d-none')
+				playerMarker.classList.remove(selectorsState.DISABLED)
 				playerMarker.style.left = pos.left+'%'
 				playerMarker.style.top = pos.top+'%'
-				updateTooltip(playerMarker, lat, lng)
+
 				scroll.animateScroll(playerMarker, 0, {
 					speed: 500,
 					offset: function (anchor) {
 						return (window.innerHeight / 2)
 					}
 				})
+
+				toggleShareButton(true)
 			}
 		}
 
-		const onFormReset = e => {
-			const playerMarker = document.querySelector('.js-player-marker')
-			playerMarker.classList.add('d-none')
+		const onCoordInputChange = function (e) {
+			toggleShareButton(false)
 		}
 
-		form.addEventListener('submit', onFormSubmit)
-		form.addEventListener("reset", onFormReset);
+		const onFormReset = e => {
+			playerMarker.classList.add(selectorsState.DISABLED)
+			history.replaceState('', '', location.pathname);
+			toggleShareButton(false)
+		}
+
+		const toggleShareButton = (isShowed = false) => {
+			const submitBtn = document.querySelector(selectors.BTN_SUBMIT)
+
+			if (isShowed) {
+				submitBtn.classList.add(selectorsState.DISABLED)
+				shareBtn.classList.remove(selectorsState.DISABLED)
+			} else {
+				submitBtn.classList.remove(selectorsState.DISABLED)
+				shareBtn.classList.add(selectorsState.DISABLED)
+			}
+		}
+
+		const onShareClick = function (e) {
+			copyCurrentUrl()
+		}
+
+
+		init()
 	},
 
-	setFixedCoordsForm: function  () {
+	/**
+	 * copy the current URL to the clipboard
+	 */
+	copyCurrentUrl: function () {
+		const dummy = document.createElement('input')
+		const text = window.location.href
+
+		document.body.appendChild(dummy);
+		dummy.value = text;
+		dummy.select();
+		document.execCommand('copy');
+		document.body.removeChild(dummy);
+	},
+
+	setMapMarkerFromUrl: function () {
+		const searchParams = new URLSearchParams(location.search);
+		const urlLat = searchParams.get('lat')
+		const urlLng = searchParams.get('lng')
+		const latInput = document.getElementById('lat')
+		const lngInput = document.getElementById('lng')
+
+		if (!urlLat || !urlLng || !lngInput || !latInput) {
+			return
+		}
+
+		latInput.value = urlLat
+		lngInput.value = urlLng
+		lngInput.closest('form').querySelector('button[type=submit]').click()
+	},
+
+	initFixedCoordsForm: function  () {
 		const myElement = document.querySelector(".js-coords-form");
 		if (myElement) {
 			const offsetTop = window.pageYOffset + myElement.getBoundingClientRect().top
@@ -571,7 +668,7 @@ const APP = {
 		})
 	},
 
-	modalCloseListener: (modalObject) => {
+	modalCloseListener: function(modalObject) {
 		modalObject.modalBoxContent.addEventListener('click', function (e) {
 			if (e.target == modalObject.modalBoxContent) {
 				modalObject.close();

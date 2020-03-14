@@ -31,7 +31,10 @@ block content
 							label.mr-2.mb-0(elem="label" for="lng") Long:
 							input#lng.form-control(elem="input" type="number" name="lng" min=lngMin max=lngMax placeholder="243" required)
 						.col-auto.mt-3.text-right.order-1.order-md-0
-							button.btn.btn--blue(elem="btn" type="submit")
+							button.d-none.js-coords-share.btn.btn--green(elem="btn" type="button")
+								+svg('share').mr-2
+								| Share
+							button.js-coords-submit.btn.btn--blue(elem="btn" type="submit")
 								+svg('map-point').mr-2
 								| Set the point
 						.col.col-md-auto.mt-3
@@ -103,8 +106,8 @@ block content
 							posTop: '92.3',
 						})
 
-					li.js-player-marker.d-none(elem="marker" style="left: 50%; top: 50%" data-tippy-content="You, lat: {{ lat }}, lng: {{ lng }}")
-						i(elem="player-icon")
+					li.js-player-marker.d-none(elem="marker")
+						i(elem="player-icon" data-tippy-content="Your location")
 							+svg('dino-marker')
 
 			.content-style.mt-3

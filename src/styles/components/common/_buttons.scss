@@ -98,6 +98,20 @@
 		}
 	}
 
+	&--green{
+		background: $color-green;
+		color: #fff;
+		svg{ fill: #fff; }
+		&:hover{
+			background: darken($color-green, 5%);
+			color: #fff;
+		}
+		&:active{
+			background: $color-green;
+			color: #fff;
+		}
+	}
+
 	&--green-gradient{
 		border: none;
 		background: linear-gradient(90deg, $color-green, $color-green-l);
