@@ -26,13 +26,12 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="styles/vendors.css">
-	<link rel="stylesheet" href="styles/style.css?23123131">
+	<link rel="stylesheet" href="styles/style.css?3213122">
 </head>
 
 <body>
-	<!-- [if lte IE 9]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-<![endif]-->
 	<div class="tingle-content-wrapper wrap-site">
+		<div class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
 		<div class="lazyload wrap-site__bg" data-bg="url(img/media/bg-1.jpg)"></div>
 		<header class="header">
 			<div class="wrap">
@@ -90,7 +89,11 @@
 									<input class="form-control user-coords__input" id="lng" type="number" name="lng" min="-337" max="338" placeholder="243" required>
 								</div>
 								<div class="col-auto mt-3 text-right order-1 order-md-0">
-									<button class="btn btn--blue user-coords__btn" type="submit">
+									<button class="d-none js-coords-share btn btn--green user-coords__btn" type="button">
+										<svg class="svg-icon mr-2">
+											<use xlink:href="img/theme/sprite.symbol.svg#si-share" />
+										</svg>Share</button>
+									<button class="js-coords-submit btn btn--blue user-coords__btn" type="submit">
 										<svg class="svg-icon mr-2">
 											<use xlink:href="img/theme/sprite.symbol.svg#si-map-point" />
 										</svg>Set the point</button>
@@ -314,7 +317,7 @@
 									</div>
 								</div>
 							</li>
-							<li class="js-player-marker d-none map__marker" style="left: 50%; top: 50%" data-tippy-content="You, lat: {{ lat }}, lng: {{ lng }}"><i class="map__player-icon"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-dino-marker"/></svg></i>
+							<li class="js-player-marker d-none map__marker"><i class="map__player-icon" data-tippy-content="Your location"><svg class="svg-icon"><use xlink:href="img/theme/sprite.symbol.svg#si-dino-marker"/></svg></i>
 							</li>
 						</ul>
 					</div>
@@ -352,9 +355,9 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CArray.from"></script>
-	<script src="scripts/vendors.js?23123131"></script>
-	<script src="scripts/main.js?23123131"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.assign%2CArray.from%2CURLSearchParams"></script>
+	<script src="scripts/vendors.js?3213122"></script>
+	<script src="scripts/main.js?3213122"></script>
 </body>
 
 </html>
