@@ -1,6 +1,5 @@
 {
-	"dinosaurs": [
-		{
+	"dinosaurs": [{
 			"name": "Allosaurus",
 			"gameMod": "survival",
 			"icon": "allosaurus",
@@ -344,8 +343,7 @@
 			"ambush": 52.2,
 			"sprint": "0:27",
 			"bleedDamage": 25,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 120,
 				"sub": 0,
@@ -367,8 +365,7 @@
 			"ambush": 42.1,
 			"sprint": "no data",
 			"bleedDamage": "no data",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 0,
 				"sub": 0,
@@ -390,8 +387,7 @@
 			"ambush": "n/a",
 			"sprint": "2:00",
 			"bleedDamage": "n/a",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 120,
 				"sub": 0,
@@ -413,8 +409,7 @@
 			"ambush": 51.5,
 			"sprint": "1:00",
 			"bleedDamage": 2,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 60,
 				"sub": 0,
@@ -436,8 +431,7 @@
 			"ambush": 49.6,
 			"sprint": "2:35",
 			"bleedDamage": 15,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 90,
 				"sub": 0,
@@ -459,8 +453,7 @@
 			"ambush": "n/a",
 			"sprint": "1:10",
 			"bleedDamage": "n/a",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 0,
 				"sub": 0,
@@ -482,8 +475,7 @@
 			"ambush": "n/a",
 			"sprint": "2:10",
 			"bleedDamage": 10,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 20,
 				"sub": 0,
@@ -505,8 +497,7 @@
 			"ambush": "n/a",
 			"sprint": "no data",
 			"bleedDamage": "n/a",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 0,
 				"sub": 0,
@@ -528,8 +519,7 @@
 			"ambush": "n/a",
 			"sprint": "0:46",
 			"bleedDamage": "n/a",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 120,
 				"sub": 0,
@@ -551,8 +541,7 @@
 			"ambush": 34.4,
 			"sprint": "0:30",
 			"bleedDamage": 18,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 180,
 				"sub": 0,
@@ -574,8 +563,7 @@
 			"ambush": "n/a",
 			"sprint": "1:30",
 			"bleedDamage": 30,
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 120,
 				"sub": 0,
@@ -597,8 +585,7 @@
 			"ambush": "n/a",
 			"sprint": "1:05",
 			"bleedDamage": "n/a",
-			"growTime":
-			{
+			"growTime": {
 				"hatch": 0,
 				"juvie": 180,
 				"sub": 0,
