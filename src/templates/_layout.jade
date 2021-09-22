@@ -4,6 +4,7 @@
 - var time = DATE.getTime();
 block vars
 include components/_index
+include components/layout/_banner
 doctype html
 html.no-js
 	head
@@ -29,6 +30,7 @@ html.no-js
 
 			div.lazyload(elem="bg" data-bg="url(img/media/bg-1.jpg)")
 			block header
+				+banner
 				+header
 			main(block="main")
 				block content
