@@ -295,6 +295,8 @@ span.error { color: #E94C3D; }
 
 .nav-showed { overflow: hidden; }
 
+.banner { padding: 5px 0; background: #1e232a; }
+
 .header { background: #232830; padding: 5px 0 10px; }
 @media (min-width: 576px) { .header { padding: 5px 0; } }
 .header__logo { fill: #fff; font-size: 60px; }
